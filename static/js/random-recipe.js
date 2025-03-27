@@ -4,7 +4,7 @@ import van from "./van-1.5.3.js"
 
 let { tags, state, derive } = van
 
-let { article, button, content, details, dialog, div, form, p, summary } = tags
+let { article, button, content, details, dialog, div, form, header, p, summary } = tags
 
 let recipes = []
 let contentRefiltered = false
@@ -26,9 +26,11 @@ let app = [
     $dialog = dialog({
         onclose: _ => showModal.val = false
     },
+
+        form({ id: "close-random-recipe", method: "dialog" }),
         article(
-            div({ class: "grid" },
-                form({ method: "dialog" }, button("Close")),
+            header(
+                button({ form: "close-random-recipe", "aria-label": "Close", value: "cancel", rel: "prev" }),
                 button({ onclick: reset }, "Reset")),
             p(() => `Recipe ${recipeIndex.val + 1} of ${totalRecipes.val}`),
             $details = details(

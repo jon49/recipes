@@ -30,12 +30,14 @@ let app = [
     },
         article(
             header(
+                button({ form: "close-tag-filter", "aria-label": "Close", value: "cancel", rel: "prev" }),
                 button({ onclick: toggleTags }, derive(() =>
                     filteredTags.val.length === 0 || filteredTags.rawVal.length < tagList.length
                         ? "Select All"
                         : "Uncheck All")
                 )),
             form({
+                id: "close-tag-filter",
                 method: "dialog",
                 onchange: _ =>
                     filteredTags.val =
