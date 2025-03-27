@@ -13,11 +13,11 @@ let $filter
 let app = div({ role: "group" },
     ($filter = label(
         input({
-        type: "search",
-        placeholder: "Search",
-        oninput: e => search.val = e.target.value.toLowerCase(),
-        value: search.val
-    }), () => `Search - ${total.val} items found.`)),
+            type: "search",
+            placeholder: "Search",
+            oninput: e => search.val = e.target.value.toLowerCase(),
+            value: search.val
+        }), () => `Search - ${total.val} items found.`)),
 )
 
 subscribe("tag-filter-close", data => {
@@ -46,7 +46,7 @@ derive(() => {
 })
 
 /**
- * @param {HTMLLIElement & { tags: string[] | undefined }} li 
+ * @param {HTMLLIElement & { tags?: string[] }} li
  */
 function getLiTags(li) {
     if (!li.tags) {
