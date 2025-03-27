@@ -1,0 +1,41 @@
+body {
+    padding: 1em 0.5em 50vh 0.5em;
+}
+
+.hidden {
+    display: none;
+}
+
+.inline {
+    display: inline;
+}
+
+ul.naked>li {
+    list-style-type: none;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    font-size: 1.5rem;
+}
+
+.pb-2 {
+    padding-bottom: 2em;
+}
+
+.pt-2 {
+    padding-top: 2em;
+}
+
+.height-fit-content {
+    height: fit-content;
+}
+
+.back-to-top {
+    position: fixed;
+    z-index: 1000;
+    bottom: 1em;
+    opacity: 0.75;
+}

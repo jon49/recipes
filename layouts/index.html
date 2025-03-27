@@ -1,0 +1,51 @@
+{{ define "main" }}
+<script src="/js/messaging.js" type="module"></script>
+<script src="/js/van-1.5.3.js" type="module"></script>
+<script src="/js/filter.js" type="module"></script>
+<script src="/js/tag-filter.js" type="module"></script>
+<script src="/js/random.js" type="module"></script>
+
+<div><a href="#tags">Tags</a></div>
+<br>
+
+<div id="app" class="grid pb-2"></div>
+
+<template id="tag-list">
+  {{ range .Site.Taxonomies.tags }}
+  <label>
+    <input type="checkbox" role="switch" value="{{ lower .Page.Title }}">
+    #{{ .Page.Title }}
+  </label>
+  {{ end }}
+</template>
+
+<content>
+  <a href="#" class="back-to-top" role="button">Back to Top</a>
+  {{ if .Data.Singular }}
+  <h3 class="blog-filter">{{ i18n "filtering-for" }} "{{ .Title }}"</h3>
+  {{ end }}
+  <ul class="naked">
+    {{ range .Pages.ByTitle }}
+    <li data-tags='{{ with .Params.tags }}{{ delimit . "," | lower }}{{ end }}' data-title="{{ .Title | lower }}">
+      {{ if .Params.link }}
+      <a href="{{ .Params.link }}" target="_blank">{{ .Title }} ↪</a>
+      {{ else }}
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{ end }}
+    </li>
+    {{ else }}
+    <li>
+      {{ i18n "no-posts" }}
+    </li>
+    {{ end }}
+  </ul>
+  {{ if not .Data.Singular }}
+  <h2 id="tags">Tags</h2>
+  <div class="tags">
+    {{ range .Site.Taxonomies.tags }}
+    <a href="{{ .Page.RelPermalink }}">#{{ lower .Page.Title }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
+</content>
+{{ end }}
