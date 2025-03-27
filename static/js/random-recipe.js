@@ -13,7 +13,7 @@ let pickedRecipes = state([])
 let recipeIndex = state(-1)
 let currentRecipe = state({ title: "Temp", href: "#" })
 let showModal = state(false)
-let recipeDetails = state("")
+let recipeDetails = state("<p>Loading...</p>")
 let totalRecipes = state(0)
 
 let $dialog
@@ -79,11 +79,13 @@ derive(() => {
 derive(() => {
     if (recipeIndex.val >= pickedRecipes.rawVal.length) {
         pickRecipe()
+        recipeDetails.val = "<p>Loading...</p>"
         setCurrentRecipe(recipeIndex.val)
     } else if (recipeIndex.val < 0) {
         setCurrentRecipe(0)
     } else {
         setCurrentRecipe(recipeIndex.val)
+        recipeDetails.val = "<p>Loading...</p>"
     }
 })
 
