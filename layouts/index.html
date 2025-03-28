@@ -24,7 +24,7 @@
   {{ if .Data.Singular }}
   <h3 class="blog-filter">{{ i18n "filtering-for" }} "{{ .Title }}"</h3>
   {{ end }}
-  <ul class="naked">
+  <ul id="recipes" class="naked">
     {{ range .Pages.ByTitle }}
     <li data-tags='{{ with .Params.tags }}{{ delimit . "," | lower }}{{ end }}' data-title="{{ .Title | lower }}">
       {{ if .Params.link }}

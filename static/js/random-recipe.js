@@ -114,7 +114,7 @@ function setCurrentRecipe(index) {
 
 function reset() {
     recipes =
-        Array.from(document.querySelectorAll("li:not(.hidden) > a") ?? [])
+        Array.from(document.querySelectorAll("ul#recipes > li:not(.hidden) > a") ?? [])
             .map(x => ({ title: x.textContent, href: x.getAttribute("href") ?? "" }))
     totalRecipes.val = recipes.length
     pickedRecipes.val = []

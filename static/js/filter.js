@@ -7,7 +7,7 @@ let { div, label, input } = tags
 
 let filteredTags = state(localStorage.getItem("tags")?.split(",") ?? []),
     search = state(localStorage.getItem("search") ?? ""),
-    total = state(document.querySelectorAll("li").length)
+    total = state(document.querySelectorAll("ul#recipes > li").length)
 
 let $filter
 let app = div({ role: "group" },
@@ -30,7 +30,8 @@ derive(() => {
 
 derive(() => {
     let count = 0
-    for (let $row of document.querySelectorAll("li")) {
+    /** @type {NodeListOf<HTMLLIElement>} */ let $rows = document.querySelectorAll("ul#recipes > li")
+    for (let $row of $rows) {
         let title = $row.dataset.title
         let liTags = getLiTags($row)
         if ((!search.val || title?.includes(search.val))
