@@ -17,7 +17,7 @@ let app = div({ role: "group" },
             placeholder: "Search",
             oninput: e => search.val = e.target.value.toLowerCase(),
             value: search.val
-        }), () => `Search - ${total.val} items found.`)),
+        }), () => `Search - ${total.val} recipes found.`)),
 )
 
 subscribe("tag-filter-close", data => {
