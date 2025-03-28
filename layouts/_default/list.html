@@ -3,7 +3,7 @@
   {{ if .Data.Singular }}
     <h3 class="blog-filter">{{ i18n "filtering-for" }} "{{ .Title }}"</h3>
   {{ end }}
-  <ul class="blog-posts">
+  <ul class="naked">
     {{ range .Pages.ByTitle }}
     <li>
       {{ if .Params.link }}
