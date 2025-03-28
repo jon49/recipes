@@ -1,0 +1,28 @@
+{{ define "main" }}
+{{ if not .Params.menu }}
+    <h1>{{ .Title }}</h1>
+    {{ if .Params.author }}
+        <p>
+        {{ with .Params.author }}· {{.}}{{ end }}
+        </p>
+    {{ end }}
+{{ end }}
+<content>
+  {{ .Content }}
+</content>
+<p class="tags">
+  {{ range (.GetTerms "tags") }}
+    <a href="{{ .RelPermalink }}">#{{ lower .LinkTitle }}</a>
+  {{ end }}
+</p>
+{{ if not .Params.hideReply }}
+{{ with .Site.Params.author.email }}
+  <p>
+    <a href='mailto:{{ . }}?subject={{ i18n "email-subject" }}"{{ default $.Site.Title $.Page.Title }}"'>
+      {{ i18n "email-reply" }} ↪
+    </a>
+  </p>
+{{ end }}
+{{ end }}
+{{ end }}
+
