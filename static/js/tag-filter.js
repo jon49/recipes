@@ -24,7 +24,7 @@ let app = [
     button({
         class: "height-fit-content",
         onclick: _ => { showModal.val = true }
-    }, () => `Tags ${filterCount.val}`),
+    }, () => `Tags (${filterCount.val})`),
     $dialog = dialog({
         onclose: _ => showModal.val = false
     },
