@@ -38,7 +38,7 @@ let app = [
                     class: "pt-2 pb-2",
                     onclick: e => {
                         if (!e.target.parentElement.open) {
-                            getRecipe(currentRecipe.rawVal.href)
+                            setRecipe(currentRecipe.rawVal.href)
                         }
                     }
                 }, () => currentRecipe.val.title),
@@ -91,12 +91,12 @@ derive(() => {
     }
 })
 
-async function getRecipe(url) {
+async function setRecipe(url) {
     let text = await fetch(url).then(response => response.text())
     let parser = new DOMParser()
     let doc = parser.parseFromString(text, "text/html")
     let recipe = doc.querySelector("content")
-    recipeDetails.val = recipe?.innerHTML ?? "No recipe found"
+    recipeDetails.val = `<p><a href="${url}">${location.href.slice(0, -1) + url}</a></p>${recipe?.innerHTML ?? "No recipe found"}`
 }
 
 function pickRecipe() {
@@ -108,11 +108,8 @@ function pickRecipe() {
 
 function setCurrentRecipe(index) {
     let newRecipe = pickedRecipes.val[index]
-    if (!newRecipe) {
-        // Do nothing
-    } else {
-        currentRecipe.val = newRecipe
-    }
+    if (!newRecipe) return
+    currentRecipe.val = newRecipe
 }
 
 function reset() {
