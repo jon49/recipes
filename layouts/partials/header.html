@@ -1,2 +1,12 @@
-<a href="{{ relURL .Site.Home.RelPermalink }}" class="title"><h1>{{ .Site.Title }}</h1></a>
+<nav>
+    <ul>
+        <li class="pb-0 pt-0">
+            <h1 class="mb-0">
+                <a href="{{ relURL .Site.Home.RelPermalink }}" aria-label="Home - {{ .Site.Title }}">
+                    <img src="/images/logo.svg" style="height: 2em;" alt="Logo Plate & Fork">
+                </a>
+            </h1>
+        </li>
+    </ul>
+</nav>
 <nav>{{- partial "nav.html" . -}}</nav>
