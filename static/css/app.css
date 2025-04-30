@@ -21,6 +21,19 @@ ul.naked>li {
     font-size: 1.5rem;
 }
 
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+
 .mb-0 {
     margin-bottom: 0;
 }
