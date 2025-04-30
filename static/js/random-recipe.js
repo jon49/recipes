@@ -20,6 +20,7 @@ let viewRecipes = state(false)
 
 let $dialog
 let $details
+let $savedRecipes
 let app = [
     button({
         class: "height-fit-content",
@@ -46,11 +47,10 @@ let app = [
             ),
             () =>
                 viewRecipes.val
-                    ? div({ id: "saved-recipes", onclick: e => {
+                    ? $savedRecipes = div({ id: "saved-recipes", onclick: e => {
                         let details = e.target.parentElement
                         if (!(details instanceof HTMLDetailsElement)) return
-                        let me = document.getElementById("saved-recipes")
-                        for (let detail of me?.querySelectorAll("details") ?? []) {
+                        for (let detail of $savedRecipes?.querySelectorAll("details") ?? []) {
                             if (detail !== details) detail.open = false
                         }
                     }}, ...savedRecipes.val.map((x, index) =>
