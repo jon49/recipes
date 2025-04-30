@@ -1,10 +1,11 @@
 // @ts-check
 import { subscribe } from "./messaging.js"
+import { Details } from "./recipe-dropdown.js"
 import van from "./van-1.5.3.js"
 
 let { tags, state, derive } = van
 
-let { article, button, content, details, dialog, div, form, header, p, summary } = tags
+let { a, article, button, content, details, dialog, div, form, fragment, header, p, summary } = tags
 
 let recipes = []
 let contentRefiltered = false
@@ -13,8 +14,9 @@ let pickedRecipes = state([])
 let recipeIndex = state(-1)
 let currentRecipe = state({ title: "Temp", href: "#" })
 let showModal = state(false)
-let recipeDetails = state("<p>Loading...</p>")
 let totalRecipes = state(0)
+let savedRecipes = state([])
+let viewRecipes = state(false)
 
 let $dialog
 let $details
@@ -31,34 +33,56 @@ let app = [
         article(
             header(
                 button({ form: "close-random-recipe", "aria-label": "Close", value: "cancel", rel: "prev" }),
-                button({ onclick: reset }, "Reset")),
-            p(() => `Recipe ${recipeIndex.val + 1} of ${totalRecipes.val}`),
-            $details = details(
-                summary({
-                    class: "pt-2 pb-2",
-                    onclick: e => {
-                        if (!e.target.parentElement.open) {
-                            setRecipe(currentRecipe.rawVal.href)
+                div({ class: "grid", hidden: () => viewRecipes.val },
+                    button({ onclick: saveRecipe }, "Save Recipe"),
+                    button({
+                        onclick: () => viewRecipes.val = true,
+                        hidden: () => savedRecipes.val.length === 0
+                    }, () => `View Recipes (${savedRecipes.val.length})`)
+                ),
+                div({ hidden: () => !viewRecipes.val },
+                    button({ onclick: () => viewRecipes.val = false }, "Back"),
+                )
+            ),
+            () =>
+                viewRecipes.val
+                    ? div({ id: "saved-recipes", onclick: e => {
+                        let details = e.target.parentElement
+                        if (!(details instanceof HTMLDetailsElement)) return
+                        let me = document.getElementById("saved-recipes")
+                        for (let detail of me?.querySelectorAll("details") ?? []) {
+                            if (detail !== details) detail.open = false
                         }
-                    }
-                }, () => currentRecipe.val.title),
-                content({ innerHTML: () => recipeDetails.val })
-            ),
-            div({ class: "grid" },
-                button({
-                    onclick: () => {
-                        recipeIndex.val > 0 ? recipeIndex.val -= 1 : null
-                        $details.open = false
-                    }
-                }, "Previous"),
-                button({
-                    onclick: () => {
-                        (recipeIndex.val < pickedRecipes.rawVal.length - 1 || recipes.length > 0)
-                            && (recipeIndex.val += 1);
-                        $details.open = false
-                    }
-                }, "Next")
-            ),
+                    }}, ...savedRecipes.val.map((x, index) =>
+                        div({ class: "flex space-between align-center" },
+                            Details({ recipe: x }),
+                            button({
+                                onclick: () => {
+                                    savedRecipes.val = savedRecipes.rawVal.filter((_, idx) => idx !== index)
+                                    if (savedRecipes.rawVal.length === 0) viewRecipes.val = false
+                                }
+                            }, "X"),
+                        ),
+                    ))
+                    : fragment(
+                        p(() => `Recipe ${recipeIndex.val + 1} of ${totalRecipes.val}`),
+                        $details = Details({ recipe: currentRecipe.val }),
+                        div({ class: "grid" },
+                            button({
+                                onclick: () => {
+                                    recipeIndex.val > 0 ? recipeIndex.val -= 1 : null
+                                    $details.open = false
+                                }
+                            }, "Previous"),
+                            button({
+                                onclick: () => {
+                                    (recipeIndex.val < pickedRecipes.rawVal.length - 1 || recipes.length > 0)
+                                        && (recipeIndex.val += 1);
+                                    $details.open = false
+                                }
+                            }, "Next")
+                        ),
+                    )
         ))
 ]
 
@@ -81,23 +105,13 @@ derive(() => {
 derive(() => {
     if (recipeIndex.val >= pickedRecipes.rawVal.length) {
         pickRecipe()
-        recipeDetails.val = "<p>Loading...</p>"
         setCurrentRecipe(recipeIndex.val)
     } else if (recipeIndex.val < 0) {
         setCurrentRecipe(0)
     } else {
         setCurrentRecipe(recipeIndex.val)
-        recipeDetails.val = "<p>Loading...</p>"
     }
 })
-
-async function setRecipe(url) {
-    let text = await fetch(url).then(response => response.text())
-    let parser = new DOMParser()
-    let doc = parser.parseFromString(text, "text/html")
-    let recipe = doc.querySelector("content")
-    recipeDetails.val = `<p><a href="${url}">${location.href.slice(0, -1) + url}</a></p>${recipe?.innerHTML ?? "No recipe found"}`
-}
 
 function pickRecipe() {
     let newRecipeIndex = Math.floor(Math.random() * recipes.length)
@@ -119,4 +133,10 @@ function reset() {
     totalRecipes.val = recipes.length
     pickedRecipes.val = []
     recipeIndex.val = 0
+}
+
+function saveRecipe() {
+    let recipe = pickedRecipes.rawVal[recipeIndex.rawVal]
+    if (!recipe || savedRecipes.rawVal.find(x => recipeIndex.rawVal === x.index)) return
+    savedRecipes.val = [...savedRecipes.rawVal, { ...recipe, index: recipeIndex.rawVal }]
 }
