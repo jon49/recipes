@@ -1,15 +1,15 @@
 {{ define "main" }}
 <content>
   {{ if .Data.Singular }}
-    <h3 class="blog-filter">{{ i18n "filtering-for" }} "{{ .Title }}"</h3>
+  <h3 class="blog-filter">{{ i18n "filtering-for" }} "{{ .Title }}"</h3>
   {{ end }}
   <ul class="naked">
     {{ range .Pages.ByTitle }}
     <li>
       {{ if .Params.link }}
-        <a href="{{ .Params.link }}" target="_blank">{{ .Title }} ↪</a>
+      <a href="{{ .Params.link }}" target="_blank">{{ .Title }} ↪</a>
       {{ else }}
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       {{ end }}
     </li>
     {{ else }}
@@ -19,11 +19,13 @@
     {{ end }}
   </ul>
   {{ if not .Data.Singular }}
+  <noscript>
     <div class="tags">
       {{ range .Site.Taxonomies.tags }}
-        <a href="{{ .Page.RelPermalink }}">#{{ lower .Page.Title }}</a>
+      <a href="{{ .Page.RelPermalink }}">#{{ lower .Page.Title }}</a>
       {{ end }}
     </div>
+  </noscript>
   {{ end }}
 </content>
 {{ end }}
