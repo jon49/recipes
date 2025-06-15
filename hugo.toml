@@ -6,6 +6,9 @@ theme = "hugo-bearcub"
 copyright = "Jon Nyman (CC BY 4.0)"
 defaultContentLanguage = "en"
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 # Generate a nice robots.txt for SEO
 enableRobotsTXT = true
 
