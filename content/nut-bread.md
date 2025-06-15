@@ -1,5 +1,5 @@
 ---
-title: Nut Bread @#lc
+title: "Nut Bread #lc"
 description: Recipe for Nut Bread.
 tags:
     - bread

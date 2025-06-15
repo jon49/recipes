@@ -1,5 +1,5 @@
 ---
-title: Breakfast Porridge #lc
+title: "Breakfast Porridge #lc"
 description: Recipe for Breakfast Porridge - Low Carb.
 tags:
     - breakfast

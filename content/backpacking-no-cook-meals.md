@@ -1,5 +1,5 @@
 ---
-title: Backpacking No-Cook Meals #backpacking
+title: "Backpacking No-Cook Meals #backpacking"
 description: Recipe for Backpacking No-Cook Meals.
 tags:
     - breakfast

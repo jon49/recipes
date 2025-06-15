@@ -1,5 +1,5 @@
 ---
-title: Sweet Potato Fruit Bake #ble #sweetener-free
+title: "Sweet Potato Fruit Bake #ble #sweetener-free"
 description: Recipe for Sweet Potato Fruit Bake.
 tags:
     - dessert

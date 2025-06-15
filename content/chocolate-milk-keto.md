@@ -1,5 +1,5 @@
 ---
-title: Chocolate Milk, Keto #lc
+title: "Chocolate Milk, Keto #lc"
 description: Recipe for Chocolate Milk, Keto.
 tags:
     - drink

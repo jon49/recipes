@@ -1,5 +1,5 @@
 ---
-title: Coconut Pancakes #lc
+title: "Coconut Pancakes #lc"
 description: Recipe for Coconut Pancakes #lc.
 tags:
   - breakfast

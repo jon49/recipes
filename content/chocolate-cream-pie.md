@@ -1,5 +1,5 @@
 ---
-title: Chocolate Cream Pie #lc
+title: "Chocolate Cream Pie #lc"
 description: Recipe for Chocolate Cream Pie.
 tags:
     - dessert

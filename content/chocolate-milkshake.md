@@ -1,5 +1,5 @@
 ---
-title: Chocolate Milkshake #lc
+title: "Chocolate Milkshake #lc"
 description: Recipe for Chocolate Milkshake.
 tags:
     - drink

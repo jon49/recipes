@@ -1,5 +1,5 @@
 ---
-title: Chocolate Milk #sweetener-free
+title: "Chocolate Milk #sweetener-free"
 description: Recipe for Chocolate Milk Sweetener-free.
 tags:
     - drink

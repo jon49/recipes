@@ -1,5 +1,5 @@
 ---
-title: Alfredo Sauce  #vegan
+title: "Alfredo Sauce #vegan"
 description: Recipe for Alfredo Sauce.
 tags:
     - dinner

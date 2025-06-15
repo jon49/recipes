@@ -1,5 +1,5 @@
 ---
-title: Cheese Chickpeas  #vegan
+title: "Cheese Chickpeas  #vegan"
 description: Recipe for vegan cheese chickpeas.
 tags:
     - snack

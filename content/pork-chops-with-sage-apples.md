@@ -1,5 +1,5 @@
 ---
-title: Seared Pork Chops with Sage and Apples #lc
+title: "Seared Pork Chops with Sage and Apples #lc"
 description: Recipe for Seared Pork Chops with Sage and Apples #lc.
 tags:
     - dinner

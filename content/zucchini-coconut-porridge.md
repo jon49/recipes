@@ -1,5 +1,5 @@
 ---
-title: Zucchini Coconut Porridge #lc
+title: "Zucchini Coconut Porridge #lc"
 description: Recipe for Zucchini Coconut Porridge.
 tags:
     - breakfast

@@ -1,5 +1,5 @@
 ---
-title: Beef Stew with Co#lcannon
+title: Beef Stew with Colcannon
 description: Recipe for Beef Stew with Co#lcannon.
 tags:
     - dinner

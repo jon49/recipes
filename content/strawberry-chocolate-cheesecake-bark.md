@@ -1,5 +1,5 @@
 ---
-title: Strawberry Chocolate Cheesecake Bark, Sugar Free @#lc
+title: "Strawberry Chocolate Cheesecake Bark, Sugar Free #lc"
 description: Recipe for Strawberry Chocolate Cheesecake Bark, Sugar Free.
 tags:
     - dessert

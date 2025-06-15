@@ -1,5 +1,5 @@
 ---
-title: Nut Bars with Chocolate Drizzle #lc
+title: "Nut Bars with Chocolate Drizzle #lc"
 description: Recipe for Nut Bars with Chocolate Drizzle #lc.
 tags:
   - snack

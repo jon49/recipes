@@ -1,5 +1,5 @@
 ---
-title: Hamburger and Cabbage Stir-Fry #ble
+title: "Hamburger and Cabbage Stir-Fry #ble"
 description: Recipe for Hamburger and Cabbage Stir-Fry.
 tags:
     - dinner

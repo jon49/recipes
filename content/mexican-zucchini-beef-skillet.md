@@ -1,5 +1,5 @@
 ---
-title: Mexican Zucchini Beef Skillet #ble
+title: "Mexican Zucchini Beef Skillet #ble"
 description: Recipe for Mexican Zucchini Beef Skillet.
 tags:
     - dinner

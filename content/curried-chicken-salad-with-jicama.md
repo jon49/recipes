@@ -1,5 +1,5 @@
 ---
-title: Curried Chicken Salad with Jicama @#lc
+title: "Curried Chicken Salad with Jicama #lc"
 description: Recipe for Curried Chicken Salad with Jicama.
 tags:
     - dinner

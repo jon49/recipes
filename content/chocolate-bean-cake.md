@@ -1,5 +1,5 @@
 ---
-title: Chocolate Bean Cake #lc
+title: "Chocolate Bean Cake #lc"
 description: Recipe for Chocolate Bean Cake.
 tags:
     - dessert

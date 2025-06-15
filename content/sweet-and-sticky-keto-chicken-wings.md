@@ -1,5 +1,5 @@
 ---
-title: Sweet and sticky keto chicken wings #lc
+title: "Sweet and sticky keto chicken wings #lc"
 description: Recipe for Sweet and sticky keto chicken wings.
 tags:
     - dinner

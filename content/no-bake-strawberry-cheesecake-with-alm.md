@@ -1,5 +1,5 @@
 ---
-title: No-Bake Strawberry Cheesecake with Almond-Macadamia Crust #lc
+title: "No-Bake Strawberry Cheesecake with Almond-Macadamia Crust #lc"
 description: Recipe for No-Bake Strawberry Cheesecake with Almond-Macadamia Crust.
 tags:
     - dessert

@@ -1,5 +1,5 @@
 ---
-title: Granola @#lc
+title: "Granola #lc"
 description: Recipe for Granola.
 tags:
     - breakfast

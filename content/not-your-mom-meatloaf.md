@@ -1,5 +1,5 @@
 ---
-title: Not Your Mom's Meatloaf #ble
+title: "Not Your Mom's Meatloaf #ble"
 description: Recipe for Not Your Mom's Meatloaf.
 tags:
     - dinner

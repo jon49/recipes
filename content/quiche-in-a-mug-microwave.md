@@ -1,5 +1,5 @@
 ---
-title: Quiche In A Mug - Microwave 5 Minutes  #microwave
+title: "Quiche In A Mug - Microwave 5 Minutes  #microwave"
 description: Recipe for Quiche In A Mug - Microwave 5 Minutes.
 tags:
     - breakfast

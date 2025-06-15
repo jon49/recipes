@@ -1,5 +1,5 @@
 ---
-title: Snickerdoodles #sweetener-free
+title: "Snickerdoodles #sweetener-free"
 description: Recipe for Snickerdoodles (sweetener-free).
 tags:
     - dessert
