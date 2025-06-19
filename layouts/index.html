@@ -41,25 +41,27 @@
     {{ end }}
   </ul>
   {{ if not .Data.Singular }}
-  <h2 id="tags">Tags</h2>
-  <div class="tags">
-    {{ range .Site.Taxonomies.tags }}
-    <a href="{{ .Page.RelPermalink }}">#{{ lower .Page.Title }}</a>
-    {{ end }}
-  </div>
+  <noscript>
+    <h2 id="tags">Tags</h2>
+    <div class="tags">
+      {{ range .Site.Taxonomies.tags }}
+      <a href="{{ .Page.RelPermalink }}">#{{ lower .Page.Title }}</a>
+      {{ end }}
+    </div>
+  </noscript>
   {{ end }}
 </content>
 
 <script>
-if ('serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js', { updateViaCache: 'all' }).then(registration => {
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }).catch(error => {
-            console.log('ServiceWorker registration failed: ', error);
-        });
+      navigator.serviceWorker.register('/sw.js', { updateViaCache: 'all' }).then(registration => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }).catch(error => {
+        console.log('ServiceWorker registration failed: ', error);
+      });
     });
-}
+  }
 </script>
 
 {{ end }}
