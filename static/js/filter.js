@@ -56,4 +56,8 @@ function getLiTags(li) {
     return li.tags
 }
 
-document.getElementById("app")?.prepend(app)
+let $app = document.getElementById("app")
+if ($app) {
+    $app.innerHTML = ''
+    $app.prepend(app)
+}

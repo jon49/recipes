@@ -9,7 +9,13 @@
 <div><a href="#tags">Tags</a></div>
 <br>
 
-<div id="app" class="grid pb-2"></div>
+<div id="app" class="grid pb-2">
+  <div role="group">
+    <label><input type="search" placeholder="Loading...">Search - 0 recipes found.</label>
+  </div>
+  <button class="height-fit-content">Tags (0)</button>
+  <button class="height-fit-content">Pick Random</button>
+</div>
 
 <template id="tag-list">
   {{ range .Site.Taxonomies.tags }}
