@@ -1,4 +1,4 @@
-let cacheVersion = "dynamic-cache-1"
+let cacheVersion = "dynamic-cache-2"
 
 let alwaysCache = [
     "/js/filter.js",
