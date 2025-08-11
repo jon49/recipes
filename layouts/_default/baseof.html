@@ -37,6 +37,10 @@
   Simply place a custom_head.html into
   your local /layouts/partials-directory -->
     {{- partial "custom_head.html" . -}}
+    <!-- This will work once the fix for speculation rules start working with service workers. -->
+    <script type="speculationrules">
+    { "prefetch": [ { "where": { "selector_matches": "a" } } ] }
+    </script>
 </head>
 
 <body class="container">
