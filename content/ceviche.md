@@ -5,7 +5,6 @@ tags:
   - dinner
 categories:
   - recipe-reference
-type: page
 ---
 
 ---
