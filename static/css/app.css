@@ -67,8 +67,14 @@ ul.naked>li {
 
 /* Theme Selector Styles */
 
+#themeForm {
+  margin: 0;
+  margin-right: var(--pico-spacing);
+}
+
 #themeForm > label {
-  font-size: 1.5em;
+  margin: 0;
+  font-size: 2em;
   transition: transform 0.2s ease;
 }
 
