@@ -1,12 +1,50 @@
 <nav>
-    <ul>
-        <li class="pb-0 pt-0">
-            <h1 class="mb-0">
-                <a href="{{ relURL .Site.Home.RelPermalink }}" aria-label="Home - {{ .Site.Title }}">
-                    <img src="/images/logo.svg" style="height: 2em;" alt="Logo Plate & Fork">
-                </a>
-            </h1>
-        </li>
-    </ul>
+  <ul>
+    <li class="pb-0 pt-0">
+      <h1 class="mb-0">
+        <a href="{{ relURL .Site.Home.RelPermalink }}" aria-label="Home - {{ .Site.Title }}">
+          <img src="/images/logo.svg" style="height: 2em;" alt="Logo Plate & Fork">
+        </a>
+      </h1>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <fieldset id="themeForm">
+        <label class="pointer" aria-label="Use light theme." title="Use light theme.">
+            <input type="radio" name="theme" value="light">🌤
+        </label>
+        <label class="pointer" aria-label="Use dark theme." title="Use dark theme.">
+            <input type="radio" name="theme" value="dark">☀
+        </label>
+        <label class="pointer" aria-label="Use default theme." title="Use default theme.">
+            <input type="radio" name="theme" value="default">☁
+        </label>
+      </fieldset>
+      <script>
+      (() => {
+        const theme = localStorage.getItem('theme') || 'default';
+        document.querySelector(`input[name="theme"][value="${theme}"]`).checked = true;
+        function applyTheme(theme) {
+          if (theme === 'default') {
+            document.documentElement.removeAttribute('data-theme');
+            return;
+          }
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+        applyTheme(theme);
+        
+        themeForm.addEventListener('change', e => {
+          applyTheme(e.target.value);
+          if (e.target.value === 'default') {
+            localStorage.removeItem('theme');
+          } else {
+            localStorage.setItem('theme', e.target.value);
+          }
+        });
+      })()
+      </script>
+    </li>
+  </ul>
 </nav>
 <nav>{{- partial "nav.html" . -}}</nav>

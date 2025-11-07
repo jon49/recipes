@@ -64,3 +64,40 @@ ul.naked>li {
     bottom: 1em;
     opacity: 0.75;
 }
+
+/* Theme Selector Styles */
+
+#themeForm > label {
+  font-size: 1.5em;
+  transition: transform 0.2s ease;
+}
+
+#themeForm > label:hover {
+  transform: scale(1.1);
+}
+
+/* Hide all labels by default */
+#themeForm > label {
+  display: none;
+}
+
+#themeForm input[type="radio"] {
+  display: none;
+}
+
+/* Show only the next theme option based on current selection */
+/* When light is checked, show dark */
+#themeForm:has([value="light"]:checked) label:has([value="dark"]) {
+  display: inline-block;
+}
+
+/* When dark is checked, show default */
+#themeForm:has([value="dark"]:checked) label:has([value="default"]) {
+  display: inline-block;
+}
+
+/* When default is checked (or nothing), show light */
+#themeForm:has([value="default"]:checked) label:has([value="light"]),
+#themeForm:not(:has([type="radio"]:checked)) label:has([value="light"]) {
+  display: inline-block;
+}
