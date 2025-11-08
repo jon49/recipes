@@ -4,17 +4,18 @@ import van from "./van-1.5.3.js"
 let { tags, state } = van
 
 let { content, details, summary } = tags
-                        
+
 /**
  * Auto loading recipe dropdown
- * @param {{ recipe: { title: string, href: string } }} param0 
- * @returns 
+ * @param {{ recipe: { title: string, href: string }, name: string | undefined }} param0
+ * @returns
  */
-export function Details({ recipe }) {
+export function Details({ recipe, name }) {
     let recipeDetails = state("<p>Loading...</p>")
     return details(
         summary({
             role: "button",
+            name,
             onclick: e => {
                 if (!e.target.parentElement.open) {
                     setRecipe(recipe.href)
@@ -29,7 +30,7 @@ export function Details({ recipe }) {
 
 /**
  * Fetch recipe and return modified HTML
- * @param {string} url 
+ * @param {string} url
  * @returns string
  */
 async function setRecipe(url) {

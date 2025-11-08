@@ -1,11 +1,10 @@
-// @ts-check
 import { subscribe } from "./messaging.js"
 import { Details } from "./recipe-dropdown.js"
 import van from "./van-1.5.3.js"
 
 let { tags, state, derive } = van
 
-let { a, article, button, content, details, dialog, div, form, fragment, header, p, summary } = tags
+let { article, button, dialog, div, form, fragment, header, p } = tags
 
 let recipes = []
 let contentRefiltered = false
@@ -50,12 +49,9 @@ let app = [
                     ? $savedRecipes = div({ id: "saved-recipes", onclick: e => {
                         let details = e.target.parentElement
                         if (!(details instanceof HTMLDetailsElement)) return
-                        for (let detail of $savedRecipes?.querySelectorAll("details") ?? []) {
-                            if (detail !== details) detail.open = false
-                        }
                     }}, ...savedRecipes.val.map((x, index) =>
                         div({ class: "flex space-between align-center" },
-                            Details({ recipe: x }),
+                            Details({ recipe: x, name: `saveRecipes` }),
                             button({
                                 onclick: () => {
                                     savedRecipes.val = savedRecipes.rawVal.filter((_, idx) => idx !== index)
