@@ -14,7 +14,7 @@ export function Details({ recipe }) {
     let recipeDetails = state("<p>Loading...</p>")
     return details(
         summary({
-            class: "pt-2 pb-2",
+            role: "button",
             onclick: e => {
                 if (!e.target.parentElement.open) {
                     setRecipe(recipe.href)

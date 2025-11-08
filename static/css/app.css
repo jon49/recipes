@@ -33,7 +33,6 @@ ul.naked>li {
     align-items: center;
 }
 
-
 .mb-0 {
     margin-bottom: 0;
 }
@@ -48,10 +47,6 @@ ul.naked>li {
 
 .pb-2 {
     padding-bottom: 2em;
-}
-
-.pt-2 {
-    padding-top: 2em;
 }
 
 .height-fit-content {
