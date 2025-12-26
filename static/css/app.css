@@ -92,13 +92,7 @@ ul.naked>li {
   display: inline-block;
 }
 
-/* When dark is checked, show default */
-#themeForm:has([value="dark"]:checked) label:has([value="default"]) {
-  display: inline-block;
-}
-
-/* When default is checked (or nothing), show light */
-#themeForm:has([value="default"]:checked) label:has([value="light"]),
-#themeForm:not(:has([type="radio"]:checked)) label:has([value="light"]) {
+/* When when dark is checked show light */
+#themeForm:has([value="dark"]:checked) label:has([value="light"]) {
   display: inline-block;
 }

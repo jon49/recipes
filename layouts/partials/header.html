@@ -12,35 +12,26 @@
     <li>
       <fieldset id="themeForm">
         <label class="pointer" aria-label="Use light theme." title="Use light theme.">
-            <input type="radio" name="theme" value="light">&#x1F324;
+            <input type="radio" name="theme" value="light">&#9728;
         </label>
         <label class="pointer" aria-label="Use dark theme." title="Use dark theme.">
-            <input type="radio" name="theme" value="dark">&#9728;
-        </label>
-        <label class="pointer" aria-label="Use default theme." title="Use default theme.">
-            <input type="radio" name="theme" value="default">&#9729;
+            <input type="radio" name="theme" value="dark">&#9729;
         </label>
       </fieldset>
       <script>
       (() => {
-        const theme = localStorage.getItem('theme') || 'default';
-        document.querySelector(`input[name="theme"][value="${theme}"]`).checked = true;
+        const userTheme = localStorage.getItem('theme') || null;
+        const systemTheme = (window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false) ? 'dark' : 'light';
+        document.querySelector(`input[name="theme"][value="${userTheme || systemTheme}"]`).checked = true;
         function applyTheme(theme) {
-          if (theme === 'default') {
-            document.documentElement.removeAttribute('data-theme');
-            return;
-          }
+          if (theme == null) return
           document.documentElement.setAttribute('data-theme', theme);
         }
-        applyTheme(theme);
-        
+        applyTheme(userTheme);
+
         themeForm.addEventListener('change', e => {
           applyTheme(e.target.value);
-          if (e.target.value === 'default') {
-            localStorage.removeItem('theme');
-          } else {
-            localStorage.setItem('theme', e.target.value);
-          }
+          localStorage.setItem('theme', e.target.value);
         });
       })()
       </script>
