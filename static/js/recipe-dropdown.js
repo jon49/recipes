@@ -7,12 +7,12 @@ let { content, details, summary } = tags
 
 /**
  * Auto loading recipe dropdown
- * @param {{ recipe: { title: string, href: string }, name: string | undefined }} param0
+ * @param {{ recipe: { title: string, href: string }, name: string | undefined, class: string | undefined }} param0
  * @returns
  */
-export function Details({ recipe }) {
+export function Details({ recipe, name, class: classes }) {
     let recipeDetails = state("<p>Loading...</p>")
-    return details(
+    return details({ class: classes },
         summary({
             role: "button",
             class: "ellipsis",

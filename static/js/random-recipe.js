@@ -50,8 +50,8 @@ let app = [
                         let details = e.target.parentElement
                         if (!(details instanceof HTMLDetailsElement)) return
                     }}, ...savedRecipes.val.map((x, index) =>
-                        div({ class: "flex space-between align-center" },
-                            Details({ recipe: x, name: `saveRecipes` }),
+                        div({ class: "flex space-between shrink-1 align-start mb-1" },
+                            Details({ recipe: x, name: `savedRecipes`, class: "m-0" }),
                             button({
                                 onclick: () => {
                                     savedRecipes.val = savedRecipes.rawVal.filter((_, idx) => idx !== index)

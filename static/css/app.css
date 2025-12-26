@@ -22,7 +22,13 @@ ul.naked>li {
 }
 
 .flex {
-    display: flex;
+  display: flex;
+  gap: var(--pico-block-spacing-horizontal);
+}
+
+.shrink-1 > * {
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .space-between {
@@ -33,8 +39,16 @@ ul.naked>li {
     align-items: center;
 }
 
+.align-start {
+  align-items: start;
+}
+
 .mb-0 {
     margin-bottom: 0;
+}
+
+.mb-1 {
+  margin-bottom: var(--pico-block-spacing-vertical);
 }
 
 .pb-0 {
@@ -121,4 +135,8 @@ summary.ellipsis {
   details[open] &::after {
     transform: translateY(-50%) rotate(0deg);
   }
+}
+
+.m-0 {
+    margin: 0;
 }
