@@ -1,6 +1,6 @@
 ---
-title: "Vegan Low-Carb Roles - Bread #lc #vegan"
-description: Recipe for Vegan Low-Carb Roles.
+title: "Vegan Low-Carb Rolls - Bread #lc #vegan"
+description: Recipe for Vegan Low-Carb Rolls.
 tags:
     - bread
 categories:
