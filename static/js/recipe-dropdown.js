@@ -12,11 +12,10 @@ let { content, details, summary } = tags
  */
 export function Details({ recipe, name, class: classes }) {
     let recipeDetails = state("<p>Loading...</p>")
-    return details({ class: classes },
+    return details({ class: classes, name },
         summary({
             role: "button",
             class: "ellipsis",
-            name,
             onclick: e => {
                 if (!e.target.parentElement.open) {
                     setRecipe(recipe.href, recipe.title)
