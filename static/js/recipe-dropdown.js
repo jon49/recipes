@@ -10,15 +10,16 @@ let { content, details, summary } = tags
  * @param {{ recipe: { title: string, href: string }, name: string | undefined }} param0
  * @returns
  */
-export function Details({ recipe, name }) {
+export function Details({ recipe }) {
     let recipeDetails = state("<p>Loading...</p>")
     return details(
         summary({
             role: "button",
+            class: "ellipsis",
             name,
             onclick: e => {
                 if (!e.target.parentElement.open) {
-                    setRecipe(recipe.href)
+                    setRecipe(recipe.href, recipe.title)
                     .then(x => recipeDetails.val = x)
                 }
             },
@@ -31,12 +32,13 @@ export function Details({ recipe, name }) {
 /**
  * Fetch recipe and return modified HTML
  * @param {string} url
+ * @param {string | undefined} title
  * @returns string
  */
-async function setRecipe(url) {
+async function setRecipe(url, title) {
     let text = await fetch(url).then(response => response.text())
     let parser = new DOMParser()
     let doc = parser.parseFromString(text, "text/html")
     let recipe = doc.querySelector("content")
-    return `<p><a href="${url}">${location.href.slice(0, -1) + url}</a></p>${recipe?.innerHTML ?? "No recipe found"}`
+    return `<p><a href="${url}">${title ?? url}</a></p>${recipe?.innerHTML ?? "No recipe found"}`
 }

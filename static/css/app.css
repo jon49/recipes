@@ -96,3 +96,29 @@ ul.naked>li {
 #themeForm:has([value="dark"]:checked) label:has([value="light"]) {
   display: inline-block;
 }
+
+summary.ellipsis {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 1.8em;
+
+  &::after {
+    position: absolute;
+    right: 0.4em;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    pointer-events: none;
+    white-space: nowrap;
+    transition: transform 0.18s ease;
+    display: inline-block;
+  }
+
+  /* rotate the caret when the details element is open */
+  details[open] > &::after,
+  details[open] &::after {
+    transform: translateY(-50%) rotate(0deg);
+  }
+}
