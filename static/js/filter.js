@@ -9,6 +9,13 @@ let filteredTags = state(localStorage.getItem("tags")?.split(",") ?? []),
     search = state(localStorage.getItem("search") ?? ""),
     total = state(document.querySelectorAll("ul#recipes > li").length)
 
+/** @type {NodeListOf<HTMLLIElement>} */
+let $rows = document.querySelectorAll("ul#recipes > li")
+let haystack = Array.from($rows, $row => $row.dataset.title ?? "")
+
+// @ts-ignore
+let uf = new uFuzzy({ intraMode: 1 })
+
 let $filter
 let app = div({ role: "group" },
     ($filter = label(
@@ -30,12 +37,22 @@ derive(() => {
 
 derive(() => {
     let count = 0
-    /** @type {NodeListOf<HTMLLIElement>} */ let $rows = document.querySelectorAll("ul#recipes > li")
-    for (let $row of $rows) {
-        let title = $row.dataset.title
+    let matchedIdxs = null
+
+    if (search.val) {
+        let [idxs, info, order] = uf.search(haystack, search.val)
+        if (idxs != null && idxs.length > 0) {
+            matchedIdxs = new Set(order ? order.map(i => idxs[i]) : idxs)
+        }
+    }
+
+    for (let i = 0; i < $rows.length; i++) {
+        let $row = $rows[i]
         let liTags = getLiTags($row)
-        if ((!search.val || title?.includes(search.val))
-            && (filteredTags.val.length === 0 || liTags.some(x => filteredTags.val.includes(x)))) {
+        let matchesSearch = !search.val || (matchedIdxs != null && matchedIdxs.has(i))
+        let matchesTags = filteredTags.val.length === 0 || liTags.some(x => filteredTags.val.includes(x))
+
+        if (matchesSearch && matchesTags) {
             $row.classList.remove("hidden")
             count++
         } else {
