@@ -14,6 +14,7 @@
   .row > button { width: auto; margin-bottom: 0; }
   textarea { field-sizing: content; min-height: 60vh; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.9rem; }
   #status { margin-left: auto; color: var(--pico-muted-color, #777); }
+  .delete-row { justify-content: flex-end; margin-top: 0.5rem; }
   #login, #app { display: none; }
   .show { display: block !important; }
   .err { color: var(--pico-del-color, #b00); }
@@ -37,10 +38,14 @@
     <select id="recipe" title="Choose a recipe to edit"></select>
     <button id="new" type="button">New…</button>
     <button id="save" type="button">Save</button>
-    <button id="delete" type="button">Delete</button>
     <span id="status"></span>
   </div>
   <textarea id="content" spellcheck="false"></textarea>
+  <!-- Delete is deliberately separated from Save (below the editor, right
+       aligned) so it can't be fat-fingered while saving. -->
+  <div class="row delete-row">
+    <button id="delete" type="button">Delete recipe</button>
+  </div>
 </div>
 </main>
 
