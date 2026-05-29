@@ -1,0 +1,10 @@
+{{- $recipes := slice -}}
+{{- range .Site.RegularPages -}}
+  {{- $recipes = $recipes | append (dict
+    "title" .Title
+    "slug" .File.ContentBaseName
+    "tags" (.Params.tags | default slice)
+    "categories" (.Params.categories | default slice)
+  ) -}}
+{{- end -}}
+{{- $recipes | jsonify -}}

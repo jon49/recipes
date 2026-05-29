@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recipe Editor</title>
+<link rel="stylesheet" href="/css/pico.jade.min.2.1.1.css">
+<style>
+  main.container { max-width: 52rem; }
+  .row { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .row > select { flex: 1; margin-bottom: 0; }
+  .row > button { width: auto; margin-bottom: 0; }
+  textarea { field-sizing: content; min-height: 60vh; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.9rem; }
+  #status { margin-left: auto; color: var(--pico-muted-color, #777); }
+  #login, #app { display: none; }
+  .show { display: block !important; }
+  .err { color: var(--pico-del-color, #b00); }
+</style>
+</head>
+<body>
+<main class="container">
+<h1>Recipe Editor</h1>
+
+<form id="login">
+  <div class="row"><input id="email" type="email" placeholder="email" autocomplete="username"></div>
+  <div class="row"><input id="password" type="password" placeholder="password" autocomplete="current-password"></div>
+  <div class="row"><button type="submit">Log in</button> <span id="loginErr" class="err"></span></div>
+</form>
+
+<div id="app">
+  <div class="row">
+    <select id="recipe" title="Choose a recipe to edit"></select>
+    <button id="new" type="button">New…</button>
+    <button id="save" type="button">Save</button>
+    <button id="logout" type="button">Log out</button>
+    <span id="status"></span>
+  </div>
+  <textarea id="content" spellcheck="false"></textarea>
+</div>
+</main>
+
+<script>
+// In production the editor is same-origin and nginx proxies /api to PocketBase.
+// Under `hugo server` (port 1313) there is no proxy, so talk to PocketBase
+// directly on :8090 (its dev port); PocketBase allows the cross-origin call.
+const API = (location.port === "1313")
+  ? `${location.protocol}//${location.hostname}:8090/api`
+  : "/api"
+const $ = id => document.getElementById(id)
+const show = (el, on) => el.classList.toggle("show", on)
+let token = localStorage.getItem("pb_token") || ""
+
+const authHeaders = () => ({ "Authorization": token, "Content-Type": "application/json" })
+
+const NEW_TEMPLATE =
+  "---\ntitle: \ndescription: \ntags:\n  - \ncategories:\n  - recipe-reference\ntype: page\n---\n\n"
+
+async function login(email, password) {
+  const r = await fetch(API + "/collections/_superusers/auth-with-password", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ identity: email, password })
+  })
+  if (!r.ok) throw new Error("Login failed")
+  token = (await r.json()).token
+  localStorage.setItem("pb_token", token)
+}
+
+async function loadList() {
+  // The list comes from Hugo's static /index.json (same origin as this page in
+  // both dev and prod), giving us titles for the dropdown without auth.
+  const recipes = await fetch("/index.json").then(r => r.json())
+  recipes.sort((a, b) => a.title.localeCompare(b.title))
+  const sel = $("recipe")
+  sel.innerHTML = ""
+  for (const rec of recipes) {
+    const o = document.createElement("option")
+    o.value = rec.slug
+    o.textContent = rec.title
+    sel.appendChild(o)
+  }
+  await loadRecipe()
+}
+
+async function loadRecipe() {
+  const slug = $("recipe").value
+  if (!slug) { $("content").value = ""; return }
+  const r = await fetch(API + "/recipes/" + slug, { headers: authHeaders() })
+  $("content").value = r.ok ? await r.text() : NEW_TEMPLATE
+  $("status").textContent = ""
+}
+
+async function save() {
+  const slug = $("recipe").value
+  if (!slug) return
+  $("status").textContent = "Saving…"
+  const r = await fetch(API + "/recipes/" + slug, {
+    method: "POST",
+    headers: authHeaders(),
+    body: JSON.stringify({ content: $("content").value })
+  })
+  $("status").textContent = r.ok ? "Saved — site rebuilding…" : "Save failed"
+}
+
+function newRecipe() {
+  const slug = (prompt("New recipe slug (lowercase letters, numbers, dashes):") || "").trim()
+  if (!slug) return
+  if (!/^[a-z0-9-]+$/.test(slug)) { alert("Use lowercase letters, numbers, and dashes only."); return }
+  const sel = $("recipe")
+  if (![...sel.options].some(o => o.value === slug)) {
+    const o = document.createElement("option")
+    o.value = slug; o.textContent = slug
+    sel.appendChild(o)
+  }
+  sel.value = slug
+  $("content").value = NEW_TEMPLATE
+  $("content").focus()
+}
+
+function logout() {
+  token = ""
+  localStorage.removeItem("pb_token")
+  show($("app"), false)
+  show($("login"), true)
+}
+
+function enterApp() {
+  show($("login"), false)
+  show($("app"), true)
+  loadList()
+}
+
+$("login").addEventListener("submit", async ev => {
+  ev.preventDefault()
+  try { await login($("email").value, $("password").value); enterApp() }
+  catch (e) { $("loginErr").textContent = e.message }
+})
+$("recipe").addEventListener("change", loadRecipe)
+$("new").addEventListener("click", newRecipe)
+$("save").addEventListener("click", save)
+$("logout").addEventListener("click", logout)
+
+// Resume an existing session if the stored token still validates.
+if (token) {
+  fetch(API + "/collections/_superusers/auth-refresh", { method: "POST", headers: authHeaders() })
+    .then(r => r.ok ? enterApp() : show($("login"), true))
+    .catch(() => show($("login"), true))
+} else {
+  show($("login"), true)
+}
+</script>
+</body>
+</html>
