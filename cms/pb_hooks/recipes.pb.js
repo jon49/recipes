@@ -53,10 +53,24 @@ routerAdd("POST", "/api/recipes/{slug}", (e) => {
     // non-zero ("nothing to commit"); that throws here and we ignore it.
     // RECIPES_NO_COMMIT=1 skips committing (used by the local dev server).
     if (!$os.getenv("RECIPES_NO_COMMIT")) {
+        let committed = false
         try {
             $os.cmd("git", "-C", SRC, "add", file).output()
             $os.cmd("git", "-C", SRC, "commit", "-m", "Edit " + slug + " via editor").output()
+            committed = true
         } catch (_) { /* nothing to commit */ }
+
+        // Push to GitHub so the edit is backed up off-Pi and the laptop can
+        // pull it (publishing fast-forwards the Pi from GitHub). Best-effort:
+        // a push failure (e.g. offline) must not fail the save or block the
+        // rebuild, so it's caught and logged.
+        if (committed) {
+            try {
+                $os.cmd("git", "-C", SRC, "push", "origin", "HEAD").output()
+            } catch (err) {
+                console.log("[recipes] git push failed: " + err)
+            }
+        }
     }
 
     // rebuild.sh detaches itself and returns immediately.
