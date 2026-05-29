@@ -1,6 +1,7 @@
-let cacheVersion = "dynamic-cache-2"
+let cacheVersion = "dynamic-cache-3"
 
 let alwaysCache = [
+    "/js/auth.js",
     "/js/filter.js",
     "/js/messaging.js",
     "/js/random-recipe.js",

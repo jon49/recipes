@@ -36,6 +36,13 @@
       })()
       </script>
     </li>
+    <li id="auth-actions"{{ if .IsHome }} data-page="home"{{ else if and (eq .Kind "page") .File }} data-page="recipe" data-slug="{{ .File.ContentBaseName }}"{{ end }}></li>
   </ul>
 </nav>
 <nav>{{- partial "nav.html" . -}}</nav>
+
+<style>
+  #auth-actions:empty { display: none; }
+  #auth-actions .auth-btn { width: auto; margin: 0; padding: .3rem .8rem; font-size: .85rem; }
+</style>
+<script src="/js/auth.js" type="module"></script>

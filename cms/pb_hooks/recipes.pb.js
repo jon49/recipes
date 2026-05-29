@@ -78,3 +78,48 @@ routerAdd("POST", "/api/recipes/{slug}", (e) => {
 
     return e.json(200, { ok: true })
 }, $apis.requireSuperuserAuth())
+
+// DELETE /api/recipes/{slug}
+// Removes the file, commits the deletion, and kicks off a (detached) rebuild.
+routerAdd("DELETE", "/api/recipes/{slug}", (e) => {
+    const SRC = $os.getenv("RECIPES_SRC") || "/var/www/recipes.jnyman.com/src"
+    const CONTENT = $os.getenv("RECIPES_CONTENT") || (SRC + "/content")
+    const REBUILD = $os.getenv("RECIPES_REBUILD") || (SRC + "/rebuild.sh")
+
+    const slug = e.request.pathValue("slug")
+    if (!slug || !/^[a-z0-9_-]+$/.test(slug)) {
+        throw new BadRequestError("Invalid recipe name.")
+    }
+
+    const file = CONTENT + "/" + slug + ".md"
+    // $os.remove throws if the file is missing; treat that as a 404-ish error.
+    try {
+        $os.remove(file)
+    } catch (_) {
+        throw new BadRequestError("Recipe not found.")
+    }
+
+    // Commit the deletion and push it, mirroring the save route.
+    // RECIPES_NO_COMMIT=1 skips committing (used by the local dev server).
+    if (!$os.getenv("RECIPES_NO_COMMIT")) {
+        let committed = false
+        try {
+            $os.cmd("git", "-C", SRC, "add", file).output()
+            $os.cmd("git", "-C", SRC, "commit", "-m", "Delete " + slug + " via editor").output()
+            committed = true
+        } catch (_) { /* nothing to commit */ }
+
+        if (committed) {
+            try {
+                $os.cmd("git", "-C", SRC, "push", "origin", "HEAD").output()
+            } catch (err) {
+                console.log("[recipes] git push failed: " + err)
+            }
+        }
+    }
+
+    // rebuild.sh detaches itself and returns immediately.
+    $os.cmd(REBUILD).output()
+
+    return e.json(200, { ok: true })
+}, $apis.requireSuperuserAuth())

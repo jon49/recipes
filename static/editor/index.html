@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="/css/pico.jade.min.2.1.1.css">
 <style>
   main.container { max-width: 52rem; }
+  .titlebar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .titlebar h1 { margin-bottom: 0; }
+  .titlebar > button { width: auto; margin-bottom: 0; }
   .row { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem; }
   .row > select { flex: 1; margin-bottom: 0; }
   .row > button { width: auto; margin-bottom: 0; }
@@ -19,7 +22,10 @@
 </head>
 <body>
 <main class="container">
-<h1>Recipe Editor</h1>
+<div class="titlebar">
+  <h1>Recipe Editor</h1>
+  <button id="logout" type="button" class="secondary" hidden>Log out</button>
+</div>
 
 <form id="login">
   <div class="row"><input id="email" type="email" placeholder="email" autocomplete="username"></div>
@@ -32,7 +38,7 @@
     <select id="recipe" title="Choose a recipe to edit"></select>
     <button id="new" type="button">New…</button>
     <button id="save" type="button">Save</button>
-    <button id="logout" type="button">Log out</button>
+    <button id="delete" type="button" class="secondary outline">Delete</button>
     <span id="status"></span>
   </div>
   <textarea id="content" spellcheck="false"></textarea>
@@ -79,6 +85,25 @@ async function loadList() {
     o.textContent = rec.title
     sel.appendChild(o)
   }
+  // Honor deep links: ?slug=… (from a recipe's Edit button) preselects that
+  // recipe; ?new (from the home page's "New recipe" button) starts a blank one.
+  // Strip the query afterward so a reload doesn't re-trigger it.
+  const params = new URLSearchParams(location.search)
+  if (params.has("new")) {
+    history.replaceState({}, "", location.pathname)
+    newRecipe()
+    return
+  }
+  const want = params.get("slug")
+  if (want) {
+    history.replaceState({}, "", location.pathname)
+    if (![...sel.options].some(o => o.value === want)) {
+      const o = document.createElement("option")
+      o.value = want; o.textContent = want
+      sel.appendChild(o)
+    }
+    sel.value = want
+  }
   await loadRecipe()
 }
 
@@ -102,6 +127,19 @@ async function save() {
   $("status").textContent = r.ok ? "Saved — site rebuilding…" : "Save failed"
 }
 
+async function del() {
+  const slug = $("recipe").value
+  if (!slug) return
+  if (!confirm(`Delete "${slug}"? This cannot be undone.`)) return
+  $("status").textContent = "Deleting…"
+  const r = await fetch(API + "/recipes/" + slug, { method: "DELETE", headers: authHeaders() })
+  if (!r.ok) { $("status").textContent = "Delete failed"; return }
+  const sel = $("recipe")
+  if (sel.selectedIndex >= 0) sel.remove(sel.selectedIndex)
+  $("status").textContent = "Deleted — site rebuilding…"
+  await loadRecipe()
+}
+
 function newRecipe() {
   const slug = (prompt("New recipe slug (lowercase letters, numbers, dashes):") || "").trim()
   if (!slug) return
@@ -120,6 +158,7 @@ function newRecipe() {
 function logout() {
   token = ""
   localStorage.removeItem("pb_token")
+  $("logout").hidden = true
   show($("app"), false)
   show($("login"), true)
 }
@@ -127,6 +166,7 @@ function logout() {
 function enterApp() {
   show($("login"), false)
   show($("app"), true)
+  $("logout").hidden = false
   loadList()
 }
 
@@ -138,6 +178,7 @@ $("login").addEventListener("submit", async ev => {
 $("recipe").addEventListener("change", loadRecipe)
 $("new").addEventListener("click", newRecipe)
 $("save").addEventListener("click", save)
+$("delete").addEventListener("click", del)
 $("logout").addEventListener("click", logout)
 
 // Resume an existing session if the stored token still validates.
