@@ -42,7 +42,6 @@ if (el) {
     a.href = link.href
     a.textContent = link.text
     a.setAttribute("role", "button")
-    a.className = "secondary auth-btn"
     el.appendChild(a)
   }
 }

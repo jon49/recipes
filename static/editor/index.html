@@ -9,7 +9,6 @@
   main.container { max-width: 52rem; }
   .titlebar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .titlebar h1 { margin-bottom: 0; }
-  .titlebar > button { width: auto; margin-bottom: 0; }
   .row { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem; }
   .row > select { flex: 1; margin-bottom: 0; }
   .row > button { width: auto; margin-bottom: 0; }
@@ -24,7 +23,7 @@
 <main class="container">
 <div class="titlebar">
   <h1>Recipe Editor</h1>
-  <button id="logout" type="button" class="secondary" hidden>Log out</button>
+  <button id="logout" type="button" hidden>Log out</button>
 </div>
 
 <form id="login">
@@ -38,7 +37,7 @@
     <select id="recipe" title="Choose a recipe to edit"></select>
     <button id="new" type="button">New…</button>
     <button id="save" type="button">Save</button>
-    <button id="delete" type="button" class="secondary outline">Delete</button>
+    <button id="delete" type="button">Delete</button>
     <span id="status"></span>
   </div>
   <textarea id="content" spellcheck="false"></textarea>
