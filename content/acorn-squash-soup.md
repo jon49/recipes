@@ -8,6 +8,8 @@ categories:
 type: page
 ---
 
+Yes!
+
 ---
 
 Source: 1000 Veg 26
