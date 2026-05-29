@@ -10,11 +10,24 @@
   .titlebar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .titlebar h1 { margin-bottom: 0; }
   .row { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem; }
-  .row > select { flex: 1; margin-bottom: 0; }
   .row > button { width: auto; margin-bottom: 0; }
   textarea { field-sizing: content; min-height: 60vh; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.9rem; }
   #status { margin-left: auto; color: var(--pico-muted-color, #777); }
   .delete-row { justify-content: flex-end; margin-top: 0.5rem; }
+  /* Filterable recipe picker */
+  .combo { position: relative; margin-bottom: 0.5rem; }
+  #filter { margin-bottom: 0; }
+  .results {
+    position: absolute; left: 0; right: 0; top: 100%; z-index: 20;
+    list-style: none; margin: 0; padding: 0; max-height: 45vh; overflow-y: auto;
+    background: var(--pico-background-color, #fff);
+    border: var(--pico-border-width, 1px) solid var(--pico-muted-border-color, #ccc);
+    border-radius: var(--pico-border-radius, 0.25rem);
+  }
+  .results li { padding: 0.7rem 0.8rem; cursor: pointer; }
+  .results li + li { border-top: var(--pico-border-width, 1px) solid var(--pico-muted-border-color, #e0e0e0); }
+  .results li[aria-selected="true"], .results li:hover { background: var(--pico-secondary-background, #d9d9d9); }
+  .results .empty { color: var(--pico-muted-color, #777); cursor: default; }
   #login, #app { display: none; }
   .show { display: block !important; }
   .err { color: var(--pico-del-color, #b00); }
@@ -34,8 +47,11 @@
 </form>
 
 <div id="app">
+  <div class="combo">
+    <input id="filter" type="search" placeholder="Find a recipe…" autocomplete="off" spellcheck="false">
+    <ul id="results" class="results" role="listbox" hidden></ul>
+  </div>
   <div class="row">
-    <select id="recipe" title="Choose a recipe to edit"></select>
     <button id="new" type="button">New…</button>
     <button id="save" type="button">Save</button>
     <span id="status"></span>
@@ -76,54 +92,80 @@ async function login(email, password) {
   localStorage.setItem("pb_token", token)
 }
 
+// All recipes from Hugo's static /index.json: [{title, slug, …}]. The combobox
+// filters this list; `currentSlug` is the recipe currently open in the editor.
+let recipes = []
+let currentSlug = ""
+let activeIndex = -1   // highlighted result for keyboard navigation
+
 async function loadList() {
-  // The list comes from Hugo's static /index.json (same origin as this page in
-  // both dev and prod), giving us titles for the dropdown without auth.
-  const recipes = await fetch("/index.json").then(r => r.json())
+  recipes = await fetch("/index.json").then(r => r.json())
   recipes.sort((a, b) => a.title.localeCompare(b.title))
-  const sel = $("recipe")
-  sel.innerHTML = ""
-  for (const rec of recipes) {
-    const o = document.createElement("option")
-    o.value = rec.slug
-    o.textContent = rec.title
-    sel.appendChild(o)
-  }
-  // Honor deep links: ?slug=… (from a recipe's Edit button) preselects that
-  // recipe; ?new (from the home page's "New recipe" button) starts a blank one.
-  // Strip the query afterward so a reload doesn't re-trigger it.
+  // Honor deep links: ?slug=… (from a recipe's Edit button) opens that recipe;
+  // ?new (from the home page's "New recipe" button) starts a blank one. Strip
+  // the query afterward so a reload doesn't re-trigger it.
   const params = new URLSearchParams(location.search)
   if (params.has("new")) {
     history.replaceState({}, "", location.pathname)
     newRecipe()
-    return
-  }
-  const want = params.get("slug")
-  if (want) {
+  } else if (params.get("slug")) {
     history.replaceState({}, "", location.pathname)
-    if (![...sel.options].some(o => o.value === want)) {
-      const o = document.createElement("option")
-      o.value = want; o.textContent = want
-      sel.appendChild(o)
-    }
-    sel.value = want
+    selectSlug(params.get("slug"))
   }
-  await loadRecipe()
+}
+
+// --- Filterable recipe picker ------------------------------------------------
+
+function renderResults(term) {
+  const ul = $("results")
+  ul.innerHTML = ""
+  activeIndex = -1
+  const q = term.trim().toLowerCase()
+  if (!q) { ul.hidden = true; return }
+  const matches = recipes
+    .filter(r => r.title.toLowerCase().includes(q) || r.slug.includes(q))
+    .slice(0, 50)
+  for (const r of matches) {
+    const li = document.createElement("li")
+    li.textContent = r.title
+    li.dataset.slug = r.slug
+    li.setAttribute("role", "option")
+    ul.appendChild(li)
+  }
+  if (!matches.length) {
+    const li = document.createElement("li")
+    li.textContent = "No matches"
+    li.className = "empty"
+    ul.appendChild(li)
+  }
+  ul.hidden = false
+}
+
+function highlight() {
+  const items = [...$("results").querySelectorAll("li[data-slug]")]
+  items.forEach((li, i) => li.setAttribute("aria-selected", String(i === activeIndex)))
+  if (items[activeIndex]) items[activeIndex].scrollIntoView({ block: "nearest" })
+}
+
+function selectSlug(slug) {
+  currentSlug = slug
+  const rec = recipes.find(r => r.slug === slug)
+  $("filter").value = rec ? rec.title : slug
+  $("results").hidden = true
+  loadRecipe()
 }
 
 async function loadRecipe() {
-  const slug = $("recipe").value
-  if (!slug) { $("content").value = ""; return }
-  const r = await fetch(API + "/recipes/" + slug, { headers: authHeaders() })
+  if (!currentSlug) { $("content").value = ""; return }
+  const r = await fetch(API + "/recipes/" + currentSlug, { headers: authHeaders() })
   $("content").value = r.ok ? await r.text() : NEW_TEMPLATE
   $("status").textContent = ""
 }
 
 async function save() {
-  const slug = $("recipe").value
-  if (!slug) return
+  if (!currentSlug) return
   $("status").textContent = "Saving…"
-  const r = await fetch(API + "/recipes/" + slug, {
+  const r = await fetch(API + "/recipes/" + currentSlug, {
     method: "POST",
     headers: authHeaders(),
     body: JSON.stringify({ content: $("content").value })
@@ -132,29 +174,26 @@ async function save() {
 }
 
 async function del() {
-  const slug = $("recipe").value
-  if (!slug) return
-  if (!confirm(`Delete "${slug}"? This cannot be undone.`)) return
+  if (!currentSlug) return
+  if (!confirm(`Delete "${currentSlug}"? This cannot be undone.`)) return
   $("status").textContent = "Deleting…"
-  const r = await fetch(API + "/recipes/" + slug, { method: "DELETE", headers: authHeaders() })
+  const r = await fetch(API + "/recipes/" + currentSlug, { method: "DELETE", headers: authHeaders() })
   if (!r.ok) { $("status").textContent = "Delete failed"; return }
-  const sel = $("recipe")
-  if (sel.selectedIndex >= 0) sel.remove(sel.selectedIndex)
+  recipes = recipes.filter(x => x.slug !== currentSlug)
+  currentSlug = ""
+  $("filter").value = ""
+  $("content").value = ""
   $("status").textContent = "Deleted — site rebuilding…"
-  await loadRecipe()
 }
 
 function newRecipe() {
   const slug = (prompt("New recipe slug (lowercase letters, numbers, dashes):") || "").trim()
   if (!slug) return
   if (!/^[a-z0-9-]+$/.test(slug)) { alert("Use lowercase letters, numbers, and dashes only."); return }
-  const sel = $("recipe")
-  if (![...sel.options].some(o => o.value === slug)) {
-    const o = document.createElement("option")
-    o.value = slug; o.textContent = slug
-    sel.appendChild(o)
-  }
-  sel.value = slug
+  if (!recipes.some(r => r.slug === slug)) recipes.push({ title: slug, slug })
+  currentSlug = slug
+  $("filter").value = slug
+  $("results").hidden = true
   $("content").value = NEW_TEMPLATE
   $("content").focus()
 }
@@ -179,7 +218,25 @@ $("login").addEventListener("submit", async ev => {
   try { await login($("email").value, $("password").value); enterApp() }
   catch (e) { $("loginErr").textContent = e.message }
 })
-$("recipe").addEventListener("change", loadRecipe)
+$("filter").addEventListener("input", e => renderResults(e.target.value))
+$("filter").addEventListener("focus", e => { e.target.select(); renderResults(e.target.value) })
+$("filter").addEventListener("keydown", e => {
+  const ul = $("results")
+  if (ul.hidden) return
+  const items = [...ul.querySelectorAll("li[data-slug]")]
+  if (e.key === "ArrowDown") { e.preventDefault(); activeIndex = Math.min(activeIndex + 1, items.length - 1); highlight() }
+  else if (e.key === "ArrowUp") { e.preventDefault(); activeIndex = Math.max(activeIndex - 1, 0); highlight() }
+  else if (e.key === "Enter") { e.preventDefault(); const li = items[activeIndex] || items[0]; if (li) selectSlug(li.dataset.slug) }
+  else if (e.key === "Escape") { ul.hidden = true }
+})
+$("results").addEventListener("click", e => {
+  const li = e.target.closest("li[data-slug]")
+  if (li) selectSlug(li.dataset.slug)
+})
+// Close the dropdown when tapping/clicking outside the combobox.
+document.addEventListener("click", e => {
+  if (!e.target.closest(".combo")) $("results").hidden = true
+})
 $("new").addEventListener("click", newRecipe)
 $("save").addEventListener("click", save)
 $("delete").addEventListener("click", del)
