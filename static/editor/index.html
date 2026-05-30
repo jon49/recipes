@@ -140,12 +140,12 @@ async function loadList() {
 // --- Tag picker --------------------------------------------------------------
 
 // The full tag vocabulary is just every tag already used across the recipes in
-// /index.json, deduped (case-insensitively) and sorted. Picking one inserts it
-// into the front-matter `tags:` block so spelling stays consistent.
+// /index.json, deduped and sorted. Picking one inserts it into the front-matter
+// `tags:` block so spelling stays consistent. Tags are always lowercase.
 function populateTags() {
   const sel = $("tag")
   const set = new Set()
-  for (const r of recipes) for (const t of (r.tags || [])) set.add(String(t).toLowerCase())
+  for (const r of recipes) for (const t of (r.tags || [])) set.add(String(t))
   sel.length = 1   // keep the "Add tag…" placeholder, drop any previous options
   for (const t of [...set].sort()) {
     const o = document.createElement("option")
@@ -167,7 +167,7 @@ function addTag(tag) {
     const m = lines[j].match(/^(\s+)-\s?(.*)$/)
     indent = m[1]
     const val = m[2].trim()
-    if (val.toLowerCase() === tag.toLowerCase()) return   // already present
+    if (val === tag) return   // already present
     if (val === "" && emptyItem === -1) emptyItem = j
     lastItem = j
   }
