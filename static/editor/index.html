@@ -82,8 +82,26 @@ let token = localStorage.getItem("pb_token") || ""
 
 const authHeaders = () => ({ "Authorization": token, "Content-Type": "application/json" })
 
-const NEW_TEMPLATE =
-  "---\ntitle: \ndescription: \ntags:\n  - \ntype: page\n---\n\n"
+const NEW_TEMPLATE = `---
+title: 
+description: 
+tags:
+    - 
+type: page
+---
+
+_Serves X_
+
+Description goes here.
+
+\`\`\`
+Ingredients
+\`\`\`
+
+---
+
+Source: 
+`;
 
 async function login(email, password) {
   const r = await fetch(API + "/collections/_superusers/auth-with-password", {
