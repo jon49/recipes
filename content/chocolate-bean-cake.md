@@ -3,8 +3,6 @@ title: "Chocolate Bean Cake #lc"
 description: Recipe for Chocolate Bean Cake.
 tags:
     - dessert
-categories:
-    - recipes
 ---
 
 Preheat the oven to 325°F.

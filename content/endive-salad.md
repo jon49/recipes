@@ -4,8 +4,6 @@ description: Recipe for Endive Salad.
 tags:
     - dinner
     - salad
-categories:
-    - recipes
 ---
 
 Peel and separate segments. Reserve juice for dressing.

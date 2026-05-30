@@ -3,8 +3,6 @@ title: Sweet Potato Mash
 description: Recipe for Sweet Potato Mash.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 Mash Together

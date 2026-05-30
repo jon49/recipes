@@ -3,8 +3,6 @@ title: Chimichurri
 description: Recipe for Chimichurri.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Process

@@ -3,8 +3,6 @@ title: Lasagna Soup
 description: Recipe for Lasagna Soup.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook about 1 1/2 lbs ground beef with

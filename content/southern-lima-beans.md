@@ -3,8 +3,6 @@ title: Southern Lima Beans
 description: Recipe for Southern Lima Beans.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Soak overnight or 1 hr quick.

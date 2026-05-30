@@ -3,8 +3,6 @@ title: Black Bean Hash
 description: Recipe for Black Bean Hash.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Sautee

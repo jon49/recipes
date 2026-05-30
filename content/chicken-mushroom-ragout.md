@@ -3,8 +3,6 @@ title: Chicken/mushroom ragout
 description: Recipe for Chicken/mushroom ragout.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

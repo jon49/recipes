@@ -3,8 +3,6 @@ title: Green Smoothie
 description: Recipe for Green Smoothie.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 Blend in food processor or blender

@@ -3,8 +3,6 @@ title: Gazpacho
 description: Recipe for Gazpacho.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Chop

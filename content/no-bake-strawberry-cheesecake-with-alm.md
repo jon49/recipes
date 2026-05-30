@@ -3,8 +3,6 @@ title: "No-Bake Strawberry Cheesecake with Almond-Macadamia Crust #lc"
 description: Recipe for No-Bake Strawberry Cheesecake with Almond-Macadamia Crust.
 tags:
     - dessert
-categories:
-    - recipes
 ---
 
 *12 servings*

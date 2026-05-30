@@ -3,8 +3,6 @@ title: Korean Japchae
 description: Recipe for Korean Japchae.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 *8 Servings*

@@ -3,8 +3,6 @@ title: Vegetable Pork Soup
 description: Recipe for Vegetable Pork Soup.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook

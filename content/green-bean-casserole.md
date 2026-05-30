@@ -3,8 +3,6 @@ title: Green Bean Casserole
 description: Recipe for Green Bean Casserole.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Steam and cut in half

@@ -3,8 +3,6 @@ title: Garlic Lemon Quinoa and Vegetables
 description: Recipe for Garlic Lemon Quinoa and Vegetables.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook in 5 cups water.

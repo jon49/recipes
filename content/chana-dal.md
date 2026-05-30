@@ -3,8 +3,6 @@ title: Chana dal
 description: Recipe for Chana dal.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Serves 6-8

@@ -3,8 +3,6 @@ title: Unstuffed Cabbage Rolls
 description: Recipe for Unstuffed Cabbage Rolls.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Brown

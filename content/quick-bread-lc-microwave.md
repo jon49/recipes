@@ -3,8 +3,6 @@ title: "Bun In A Bowl - Bread  #microwave #lc"
 description: Recipe for Bread In A Bowl - Microwave 3 Minutes.
 tags:
     - bread
-categories:
-    - recipes
 ---
 
 *Serves 1*

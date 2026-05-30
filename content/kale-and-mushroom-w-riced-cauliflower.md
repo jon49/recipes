@@ -3,8 +3,6 @@ title: Kale and mushroom w/ riced cauliflower
 description: Recipe for Kale and mushroom w/ riced cauliflower.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Destem 3 bunches of kale. Boil in 1 cup water until tender. Chop and sprinkle with 1 1/2 T. red wine vinegar

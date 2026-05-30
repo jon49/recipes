@@ -4,8 +4,6 @@ description: Recipe for Alfredo Sauce.
 tags:
     - dinner
     - sauce
-categories:
-    - recipes
 type: page
 ---
 

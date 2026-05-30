@@ -3,8 +3,6 @@ title: "Zucchini Coconut Porridge #lc"
 description: Recipe for Zucchini Coconut Porridge.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 Comine all ingredients into pot

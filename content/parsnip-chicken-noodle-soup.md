@@ -3,8 +3,6 @@ title: Parsnip Chicken Noodle Soup
 description: Recipe for Parsnip Chicken Noodle Soup.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook 2 lbs chopped chicken breast

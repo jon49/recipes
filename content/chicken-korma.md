@@ -3,8 +3,6 @@ title: Chicken Korma
 description: Recipe for Chicken Korma.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 ```

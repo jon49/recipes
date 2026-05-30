@@ -3,8 +3,6 @@ title: Curried Cauliflower Soup with Chicken and Apple
 description: Recipe for Curried Cauliflower Soup with Chicken and Apple.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Coarsely chop

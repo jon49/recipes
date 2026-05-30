@@ -3,8 +3,6 @@ title: Ranch-like Dressing, Yogurt
 description: Recipe for Ranch-like Dressing, Yogurt.
 tags:
     - dressings
-categories:
-    - recipes
 ---
 
 Mix

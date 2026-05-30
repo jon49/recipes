@@ -3,8 +3,6 @@ title: "Muffins, Berries and Oats  #microwave"
 description: Recipe for Muffins, Berries and Oats - Microwave.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 *Serves 1*

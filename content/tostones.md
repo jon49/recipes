@@ -3,8 +3,6 @@ title: Tostones
 description: Recipe for Tostones.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Peel and slice 2 large plantain

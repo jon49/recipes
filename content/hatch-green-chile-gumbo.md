@@ -3,8 +3,6 @@ title: Hatch Green Chile Gumbo
 description: Recipe for Hatch Green Chile Gumbo.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 1. Brown 2 Lb. chicken thighs with 1/4 cup oil on medium heat.

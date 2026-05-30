@@ -3,8 +3,6 @@ title: Hamburger Helper
 description: Recipe for Hamburger Helper.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook

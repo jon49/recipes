@@ -14,8 +14,8 @@
 // Do not hoist these back to the top of the file; they will become undefined
 // at request time.
 
-// The recipe list comes from Hugo's generated /index.json (title, slug, tags,
-// categories), so there is no list route here — only load and save.
+// The recipe list comes from Hugo's generated /index.json (title, slug, tags),
+// so there is no list route here — only load and save.
 
 // GET /api/recipes/{slug} -> raw markdown text
 routerAdd("GET", "/api/recipes/{slug}", (e) => {

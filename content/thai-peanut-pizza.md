@@ -3,8 +3,6 @@ title: Thai Peanut Pizza
 description: Recipe for Thai Peanut Pizza.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Sauce: combine and cook 10-15 mins.

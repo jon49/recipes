@@ -3,8 +3,6 @@ title: Sprouted Mung Bean Sautee
 description: Recipe for Sprouted Mung Bean Sautee.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Soak 538 g mung beans for 12 hours then sprout (2-3 days).

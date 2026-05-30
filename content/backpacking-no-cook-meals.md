@@ -4,8 +4,6 @@ description: Recipe for Backpacking No-Cook Meals.
 tags:
     - breakfast
     - dinner
-categories:
-    - recipes
 ---
 
 ## Breakfast

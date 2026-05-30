@@ -4,8 +4,6 @@ description: Recipe for Brussels and Arugula Salad.
 tags:
     - dinner
     - salad
-categories:
-    - recipes
 ---
 
 Shred 2 radicchio bulbs

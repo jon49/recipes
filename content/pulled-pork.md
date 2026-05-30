@@ -3,8 +3,6 @@ title: Pulled Pork
 description: Recipe for Pulled Pork.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Mix dry ingredients

@@ -3,8 +3,6 @@ title: Chicken & Mushroom Skillet
 description: Recipe for Chicken & Mushroom Skillet.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

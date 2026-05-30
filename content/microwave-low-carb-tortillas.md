@@ -3,8 +3,6 @@ title: "Tortillas - Microwave #lc"
 description: Recipe for Microwavable Tortillas, low carb.
 tags:
     - bread
-categories:
-    - recipes
 ---
 
 *4 Servings*

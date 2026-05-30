@@ -3,8 +3,6 @@ title: Rice cubes with satay sauce
 description: Recipe for Rice cubes with satay sauce.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

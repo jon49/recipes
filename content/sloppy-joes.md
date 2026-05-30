@@ -3,8 +3,6 @@ title: Sloppy Joes
 description: Recipe for Sloppy Joes.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook

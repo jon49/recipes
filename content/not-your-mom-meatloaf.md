@@ -3,8 +3,6 @@ title: "Not Your Mom's Meatloaf #ble"
 description: Recipe for Not Your Mom's Meatloaf.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 *Multiple servings (1 serving protein, 1 oz vegetables)*

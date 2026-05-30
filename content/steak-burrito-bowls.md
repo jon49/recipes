@@ -3,8 +3,6 @@ title: Steak Burrito Bowls
 description: Recipe for Steak Burrito Bowls.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Make seasoning

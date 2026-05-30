@@ -3,8 +3,6 @@ title: Tamarind Chicken
 description: Recipe for Tamarind Chicken.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Combine/mix in ziploc

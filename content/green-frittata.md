@@ -3,8 +3,6 @@ title: Green Frittata
 description: Recipe for Green Frittata.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 Chop and cook in coconut oil

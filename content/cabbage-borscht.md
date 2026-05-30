@@ -3,8 +3,6 @@ title: Cabbage Borscht
 description: Recipe for Cabbage Borscht.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

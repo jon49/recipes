@@ -3,8 +3,6 @@ title: "Breakfast Porridge #lc"
 description: Recipe for Breakfast Porridge - Low Carb.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 *Serves 2-4*

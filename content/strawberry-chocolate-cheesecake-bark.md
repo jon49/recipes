@@ -3,8 +3,6 @@ title: "Strawberry Chocolate Cheesecake Bark, Sugar Free #lc"
 description: Recipe for Strawberry Chocolate Cheesecake Bark, Sugar Free.
 tags:
     - dessert
-categories:
-    - recipes
 ---
 
 Whip/Mix (in food processor) the soft cream cheese then add the sweetener

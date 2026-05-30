@@ -3,8 +3,6 @@ title: Chicken and Smoked Sausage Gumbo
 description: Recipe for Chicken & Sausage Gumbo.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Roux

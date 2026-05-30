@@ -3,8 +3,6 @@ title: Healthy Spanish Chicken and Rice Stew
 description: Recipe for Healthy Spanish Chicken and Rice Stew.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 *5-6 Servings*

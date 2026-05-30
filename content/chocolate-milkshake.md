@@ -4,8 +4,6 @@ description: Recipe for Chocolate Milkshake.
 tags:
     - drink
     - dessert
-categories:
-    - recipes
 ---
 
 *2 Servings*

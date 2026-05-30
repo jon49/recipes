@@ -3,8 +3,6 @@ title: Zucchini pizza boats
 description: Recipe for Zucchini pizza boats.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

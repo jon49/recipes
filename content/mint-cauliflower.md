@@ -3,8 +3,6 @@ title: Mint Cauliflower
 description: Recipe for Mint Cauliflower.
 tags:
     - salad
-categories:
-    - recipes
 ---
 
 Make riced cauliflower: Blend a head of cauliflower. Cook in oiled pan until warm.

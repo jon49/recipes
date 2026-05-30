@@ -4,8 +4,6 @@ description: Recipe for Chocolate Milk, Keto.
 tags:
     - drink
     - dessert
-categories:
-    - recipes
 ---
 
 870 calories

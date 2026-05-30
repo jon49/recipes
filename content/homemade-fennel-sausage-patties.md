@@ -3,8 +3,6 @@ title: Homemade Fennel Sausage Patties
 description: Recipe for Homemade Fennel Sausage Patties.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 *6 Servings (2 patties per person)*

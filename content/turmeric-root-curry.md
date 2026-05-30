@@ -3,8 +3,6 @@ title: Turmeric Root Curry
 description: Recipe for Turmeric Root Curry.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Peel and grate six 2-in pieces of turmeric root. Use gloves. Sautee in coconut oil over med-low heat for 10 minutes, until slightly brown.

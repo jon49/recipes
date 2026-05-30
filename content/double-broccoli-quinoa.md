@@ -3,8 +3,6 @@ title: Double Broccoli Quinoa
 description: Recipe for Double Broccoli Quinoa.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Steam

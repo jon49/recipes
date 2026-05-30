@@ -3,8 +3,6 @@ title: Enchilada
 description: Recipe for Enchilada.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

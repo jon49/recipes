@@ -3,8 +3,6 @@ title: "Keto Nut Butter #lc"
 description: Recipe for keto nut butter.
 tags:
   - sauce
-categories:
-  - recipe
 type: page
 ---
 

@@ -3,8 +3,6 @@ title: Chimichurri fish taco
 description: Recipe for Chimichurri fish taco.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

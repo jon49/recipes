@@ -3,8 +3,6 @@ title: Broccoli and Mushroom Bake
 description: Recipe for Broccoli and Mushroom Bake.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Chop 2 lb broccoli and 1 lb mushroom

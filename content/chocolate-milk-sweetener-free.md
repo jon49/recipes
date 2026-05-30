@@ -4,8 +4,6 @@ description: Recipe for Chocolate Milk Sweetener-free.
 tags:
     - drink
     - dessert
-categories:
-    - recipes
 ---
 
 _Serves 1_

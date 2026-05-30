@@ -3,8 +3,6 @@ title: Chicken Cashew Stirfry
 description: Recipe for Chicken Cashew Stirfry.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 1. Cook 2 Lb. chicken in oil, adding 1/2 T. aminos and miso halfway through cooking

@@ -3,8 +3,6 @@ title: Banana Peanut Butter Chia Seed Pudding
 description: Recipe for Banana Peanut Butter Chia Seed Pudding.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 *Serves 8* (I typically double this and it serves 4) :- 

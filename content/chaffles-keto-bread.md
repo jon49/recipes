@@ -3,8 +3,6 @@ title: "Chaffles (Low-carb bread) #lc"
 description: Recipe for Ceviche.
 tags:
   - bread
-categories:
-    - recipes
 ---
 
 ## Recipe 1

@@ -3,8 +3,6 @@ title: Chili
 description: Recipe for Chili.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Brown

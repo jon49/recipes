@@ -3,8 +3,6 @@ title: Mediterranean Egg and Vegetable Strata
 description: Recipe for Mediterranean Egg and Vegetable Stata.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 *Serves 6-8*

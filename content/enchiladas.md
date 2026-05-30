@@ -3,8 +3,6 @@ title: Enchiladas
 description: Recipe for Enchiladas.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Sautee 2 bell peppers

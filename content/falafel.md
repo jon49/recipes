@@ -3,8 +3,6 @@ title: Falafel
 description: Recipe for Falafel.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

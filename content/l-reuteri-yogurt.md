@@ -3,8 +3,6 @@ title: Yogurt, L. Reuteri
 description: Recipe for L. Reuteri Yogurt.
 tags:
     - fermentation
-categories:
-    - recipes
 ---
 
 ## Coconut Version

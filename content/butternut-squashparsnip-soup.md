@@ -4,8 +4,6 @@ description: Recipe for Butternut Squash/Parsnip Soup.
 tags:
     - dinner
     - salad
-categories:
-    - recipes
 ---
 
 Roast with oil at 400 degrees for 25 mins.

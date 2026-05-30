@@ -4,8 +4,6 @@ description: Recipe for Sweet Potato Fruit Bake.
 tags:
     - dessert
     - breakfast
-categories:
-    - recipes
 ---
 
 *Makes 4 servings*

@@ -3,8 +3,6 @@ title: Stroganoff
 description: Recipe for Stroganoff.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

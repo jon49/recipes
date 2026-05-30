@@ -3,8 +3,6 @@ title: Pumpkin Spice
 description: Recipe for Pumpkin Spice.
 tags:
     - seasoning
-categories:
-    - recipes
 ---
 
 ```

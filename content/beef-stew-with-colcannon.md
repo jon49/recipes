@@ -3,8 +3,6 @@ title: Beef Stew with Colcannon
 description: Recipe for Beef Stew with Co#lcannon.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cube 3 lb chuck roast. Brown in large cast iron pan. Sprinkle with 2 T. flour.

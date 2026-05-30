@@ -3,8 +3,6 @@ title: Asian Pork Cabbage Bowls
 description: Recipe for Asian Pork Cabbage Bowls.
 tags:
     - dinner
-categories:
-    - recipes
 type: page
 ---
 

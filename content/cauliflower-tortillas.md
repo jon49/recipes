@@ -3,8 +3,6 @@ title: Cauliflower Tortillas
 description: Recipe for Cauliflower Tortillas.
 tags:
     - bread
-categories:
-    - recipes
 ---
 
 1. Steam cauliflower

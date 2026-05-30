@@ -3,8 +3,6 @@ title: Moroccan Lamb
 description: Recipe for Moroccan Lamb.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Brown lamb shoulder in lard or tallow. Remove from pan.

@@ -3,8 +3,6 @@ title: "Mexican Zucchini Beef Skillet #ble"
 description: Recipe for Mexican Zucchini Beef Skillet.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 *4 Servings*

@@ -3,8 +3,6 @@ title: Sweet & Sour Chicken
 description: Recipe for Sweet & Sour Chicken.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Mix Sauce

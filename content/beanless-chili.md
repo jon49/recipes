@@ -3,8 +3,6 @@ title: Beanless chili
 description: Recipe for Beanless chili.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

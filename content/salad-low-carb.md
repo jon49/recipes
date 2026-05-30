@@ -3,8 +3,6 @@ title: Salad, Low carb
 description: Recipe for Salad, Low carb.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 1145 Calories, 90 g Fat, 36 Net Carbs, 33 Protein

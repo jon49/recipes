@@ -3,8 +3,6 @@ title: Italian Style Drumsticks
 description: Recipe for Italian Style Drumsticks .
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 ```

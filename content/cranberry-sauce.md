@@ -3,8 +3,6 @@ title: Cranberry Sauce
 description: Recipe for Cranberry Sauce.
 tags:
     - sauce
-categories:
-    - recipes
 ---
 
 Boil

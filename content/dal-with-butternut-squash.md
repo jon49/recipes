@@ -3,8 +3,6 @@ title: Dal with butternut squash
 description: Recipe for Dal with butternut squash.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

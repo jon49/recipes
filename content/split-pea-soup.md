@@ -3,8 +3,6 @@ title: Split Pea Soup
 description: Recipe for Split Pea Soup.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Sautee

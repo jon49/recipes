@@ -3,8 +3,6 @@ title: Red Bean and Sweet Potato Curry
 description: Recipe for Red Bean and Sweet Potato Curry.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Sautee about 5 minutes.

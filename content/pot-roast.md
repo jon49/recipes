@@ -3,8 +3,6 @@ title: Pot Roast (Red wine)
 description: Recipe for Pot Roast.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Brown about

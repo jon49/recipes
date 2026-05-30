@@ -3,8 +3,6 @@ title: Eggplant lasagna
 description: Recipe for Eggplant lasagna.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

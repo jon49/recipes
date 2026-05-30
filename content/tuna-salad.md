@@ -3,8 +3,6 @@ title: Tuna salad
 description: Recipe for Tuna salad.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 ```

@@ -3,8 +3,6 @@ title: "Snickerdoodles #sweetener-free"
 description: Recipe for Snickerdoodles (sweetener-free).
 tags:
     - dessert
-categories:
-    - recipes
 ---
 
 Preheat oven to 350° F

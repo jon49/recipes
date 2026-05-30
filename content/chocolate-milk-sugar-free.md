@@ -4,8 +4,6 @@ description: Recipe for Chocolate Milk (sweetener-free).
 tags:
     - drink
     - dessert
-categories:
-    - recipes
 ---
 
 Mash Together

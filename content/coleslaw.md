@@ -4,8 +4,6 @@ description: Recipe for Coleslaw.
 tags:
     - dinner
     - salad
-categories:
-    - recipes
 ---
 
 Serves 4

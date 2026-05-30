@@ -3,8 +3,6 @@ title: Hummus
 description: Recipe for Hummus.
 tags:
     - dressings
-categories:
-    - recipes
 ---
 
 Combine in blender

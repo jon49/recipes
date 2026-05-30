@@ -3,8 +3,6 @@ title: Chicken Pad Thai
 description: Recipe for Chicken Pad Thai.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Whisk sauce:

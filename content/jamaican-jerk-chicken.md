@@ -3,8 +3,6 @@ title: Jamaican Jerk Chicken w/ Mango Salsa
 description: Recipe for Jamaican Jerk Chicken w/ Mango Salsa.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Coat chicken breasts with

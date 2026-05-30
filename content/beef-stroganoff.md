@@ -3,8 +3,6 @@ title: Beef Stroganoff
 description: Recipe for Beef Stroganoff.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Sautee 2 large sliced onions

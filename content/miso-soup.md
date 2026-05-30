@@ -3,8 +3,6 @@ title: Miso Soup
 description: Recipe for Miso Soup.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Thinly slice

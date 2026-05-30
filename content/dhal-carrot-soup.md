@@ -3,8 +3,6 @@ title: Dhal & Carrot Soup
 description: Recipe for Dhal & Carrot Soup.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

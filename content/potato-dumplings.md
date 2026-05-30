@@ -3,8 +3,6 @@ title: Potato Dumplings
 description: Recipe for Potato Dumplings.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Peel and cut then boil and mash

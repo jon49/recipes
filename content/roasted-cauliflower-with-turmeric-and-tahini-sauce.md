@@ -3,8 +3,6 @@ title: "Roasted Cauliflower with Turmeric and Tahini Sauce #lc"
 description: Recipe for Roasted Cauliflower with Turmeric and Tahini Sauce #lc.
 tags:
   - dinner
-categories:
-  - recipe
 type: page
 ---
 

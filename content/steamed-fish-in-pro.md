@@ -3,8 +3,6 @@ title: Straw Potatoes
 description: Recipe for Straw Potatoes.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 # Steamed fish in pro

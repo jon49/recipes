@@ -4,8 +4,6 @@ description: Recipe for Butternut squash soup.
 tags:
     - dinner
     - salad
-categories:
-    - recipes
 ---
 
 Peel and chunk 2 1/4 lb butternut squash

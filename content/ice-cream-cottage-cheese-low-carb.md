@@ -3,8 +3,6 @@ title: Ice Cream, Cottage Cheese, low carb
 description: Recipe for Ice Cream, Cottage Cheese, low carb.
 tags:
     - dessert
-categories:
-    - recipes
 ---
 
 Blend in Food Processor

@@ -3,8 +3,6 @@ title: Chia Seed Parfait
 description: Recipe for Chia Seed Parfait.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 _Makes 4 servings_

@@ -3,8 +3,6 @@ title: Veggie risotto
 description: Recipe for Veggie risotto.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

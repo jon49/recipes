@@ -3,8 +3,6 @@ title: Potato/Leek Soup
 description: Recipe for Potato/Leek Soup .
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Combine in pot

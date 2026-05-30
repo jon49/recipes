@@ -3,8 +3,6 @@ title: Carrot Cabbage Noodles
 description: Recipe for Carrot Cabbage Noodles.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook

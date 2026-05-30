@@ -3,8 +3,6 @@ title: Monte Cristo with French Toast
 description: Recipe for Monte Cristo with French Toast.
 tags:
   - breakfast
-categories:
-  - recipe-reference
 type: page
 ---
 

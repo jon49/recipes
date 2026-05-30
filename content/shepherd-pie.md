@@ -3,8 +3,6 @@ title: Shepherd's Pie
 description: Recipe for Shepherd's Pie.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook in skillet, 7-9 minutes, until meat crumbled and vegetables tender

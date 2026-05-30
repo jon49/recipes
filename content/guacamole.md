@@ -3,8 +3,6 @@ title: Guacamole
 description: Recipe for Guacamole.
 tags:
     - sauce
-categories:
-    - recipes
 ---
 
 Combine

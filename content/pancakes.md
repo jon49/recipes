@@ -3,8 +3,6 @@ title: Pancakes
 description: Recipe for Pancakes.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 *Prep time: 5 min. | cooking time: 10 min. | makes 5 pancakes*

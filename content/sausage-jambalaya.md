@@ -3,8 +3,6 @@ title: Sausage Jambalaya
 description: Recipe for Sausage Jambalaya.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Brown 2 Lb. pork sausage. Add 1 onion, cook 5 mins.

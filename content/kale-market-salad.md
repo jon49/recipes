@@ -3,8 +3,6 @@ title: Kale Market Salad
 description: Recipe for Kale Market Salad.
 tags:
     - salad
-categories:
-    - recipes
 ---
 
 Tear 1/2 bunch kale into pieces.

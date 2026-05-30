@@ -3,8 +3,6 @@ title: "Tortilla #lc"
 description: Recipe for Tortilla, Low carb.
 tags:
     - bread
-categories:
-    - recipes
 ---
 
 Makes 3 tortillas about 6 carbs each for soy flour or 4 carbs for lupin. Double the recipe and use during the week.

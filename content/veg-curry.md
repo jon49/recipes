@@ -3,8 +3,6 @@ title: Veg Curry
 description: Recipe for Veg Curry.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

@@ -3,8 +3,6 @@ title: Ukrainian Borscht
 description: Recipe for Ukrainian Borscht.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 1. Cook sausage, set aside

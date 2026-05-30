@@ -4,8 +4,6 @@ description: Recipe for Curried Chicken Salad with Jicama.
 tags:
     - dinner
     - salad
-categories:
-    - recipes
 ---
 
 Steam until done (12-15 minutes) then cut up.

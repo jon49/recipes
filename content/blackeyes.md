@@ -3,8 +3,6 @@ title: Blackeyes
 description: Recipe for Blackeyes.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook 1 lb bacon.

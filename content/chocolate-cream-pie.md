@@ -3,8 +3,6 @@ title: "Chocolate Cream Pie #lc"
 description: Recipe for Chocolate Cream Pie.
 tags:
     - dessert
-categories:
-    - recipes
 ---
 
 In a bowl of food processor add the entire batch of cookies ([Chocolate Wafers](/chocolate-wafers/)

@@ -3,8 +3,6 @@ title: Lentil Bread
 description: Recipe for Lentil Bread.
 tags:
     - bread
-categories:
-    - recipes
 ---
 
 Rinse and Soak (1 hour)

@@ -3,8 +3,6 @@ title: "Cheesy Chickpeas  #vegan"
 description: Recipe for Apple Pumpkin Spice Muffins.
 tags:
     - snack
-categories:
-    - recipes
 ---
 
 ## Method #1

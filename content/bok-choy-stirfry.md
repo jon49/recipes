@@ -3,8 +3,6 @@ title: Bok Choy and Green Bean Stirfry
 description: Recipe for Bok Choy Stirfry.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Heat oil to hot

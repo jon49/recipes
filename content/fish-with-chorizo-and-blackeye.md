@@ -3,8 +3,6 @@ title: Fish with Chorizo and Blackeye
 description: Recipe for Fish with Chorizo and Blackeye.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Brown in oil.

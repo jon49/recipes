@@ -3,8 +3,6 @@ title: Chocolate Wafers
 description: Recipe for Chocolate Wafers.
 tags:
     - dessert
-categories:
-    - recipes
 ---
 
 Makes about 50 wafers

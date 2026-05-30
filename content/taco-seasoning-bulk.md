@@ -3,8 +3,6 @@ title: Taco Seasoning (Bulk)
 description: Recipe for Taco Seasoning (Bulk).
 tags:
     - seasoning
-categories:
-    - recipes
 ---
 
 ```

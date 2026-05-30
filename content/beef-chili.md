@@ -3,8 +3,6 @@ title: Beef Chili
 description: Recipe for Beef Chili.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook 2 Lb. beef.

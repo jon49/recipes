@@ -3,8 +3,6 @@ title: Chicken Carbonara
 description: Recipe for Chicken Carbonara.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Heat oil, add

@@ -3,8 +3,6 @@ title: Teriyaki Meatballs
 description: Recipe for Teriyaki Meatballs.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Combine

@@ -3,8 +3,6 @@ title: Kale and mushroom rice
 description: Recipe for Kale and mushroom rice.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

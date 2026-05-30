@@ -3,8 +3,6 @@ title: Raw carrot soup
 description: Recipe for Raw carrot soup.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

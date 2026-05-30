@@ -3,8 +3,6 @@ title: Chayote curry with chapati
 description: Recipe for Chayote curry with chapati.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

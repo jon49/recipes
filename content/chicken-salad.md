@@ -3,8 +3,6 @@ title: Chicken Salad
 description: Recipe for Chicken Salad.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook 4 cups chopped chicken, and place in bowl.

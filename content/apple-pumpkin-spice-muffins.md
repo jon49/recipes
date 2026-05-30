@@ -4,8 +4,6 @@ description: Recipe for Apple Pumpkin Spice Muffins.
 tags:
     - breakfast
     - snack
-categories:
-    - recipes
 type: page
 ---
 

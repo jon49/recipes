@@ -3,8 +3,6 @@ title: Southwestern Chicken Soup
 description: Recipe for Southwestern Chicken Soup.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook

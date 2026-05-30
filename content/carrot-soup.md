@@ -3,8 +3,6 @@ title: Carrot soup
 description: Recipe for Carrot soup.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

@@ -3,8 +3,6 @@ title: Mango Salsa
 description: Recipe for Mango Salsa.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 Cube 2 mangos

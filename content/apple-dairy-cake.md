@@ -3,8 +3,6 @@ title: Apple Dairy Cake
 description: Recipe for Apple Dairy Cake.
 tags:
   - dessert
-categories:
-    - recipes
 ---
 
 Preheat oven at 360&deg;.

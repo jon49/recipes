@@ -3,8 +3,6 @@ title: Tuna Noodle Casserole
 description: Recipe for Tuna Noodle Casserole.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 ## Make cream of mushroom soup

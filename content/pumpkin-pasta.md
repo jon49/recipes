@@ -3,8 +3,6 @@ title: Pumpkin pasta
 description: Recipe for Pumpkin pasta.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

@@ -3,8 +3,6 @@ title: "Nut Bread #lc"
 description: Recipe for Nut Bread.
 tags:
     - bread
-categories:
-    - recipes
 ---
 
 Pulse lightly in food processor

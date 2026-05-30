@@ -3,8 +3,6 @@ title: Moroccan (beef Tagine With Quinces (Safarjal and Honey)
 description: Recipe for Moroccan (beef Tagine With Quinces (Safarjal and Honey).
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

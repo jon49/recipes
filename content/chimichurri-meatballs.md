@@ -3,8 +3,6 @@ title: Chimichurri Meatballs
 description: Recipe for Chimichurri Meatballs.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 ```

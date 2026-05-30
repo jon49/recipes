@@ -3,8 +3,6 @@ title: Cornbread
 description: Recipe for Cornbread.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

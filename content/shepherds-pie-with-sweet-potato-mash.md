@@ -3,8 +3,6 @@ title: "Shepherd's Pie with Sweet Potato Mash #lc"
 description: Recipe for Shepherd's Pie with Sweet Potato Mash.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 **Makes 4 - 6 servings.**

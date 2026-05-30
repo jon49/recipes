@@ -3,8 +3,6 @@ title: "Vegan Low-Carb Rolls - Bread #lc #vegan"
 description: Recipe for Vegan Low-Carb Rolls.
 tags:
     - bread
-categories:
-    - recipes
 ---
 
 This recipe makes 4 breads, approx 4-5 net carbs per bread. It's best to use a

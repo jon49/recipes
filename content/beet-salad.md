@@ -3,8 +3,6 @@ title: Beet Salad
 description: Recipe for Beet Salad.
 tags:
     - salad
-categories:
-    - recipes
 ---
 
 Prepare sour cream dressing

@@ -3,8 +3,6 @@ title: "Cheese Chickpeas  #vegan"
 description: Recipe for vegan cheese chickpeas.
 tags:
     - snack
-categories:
-    - recipes
 ---
 
 Drain and save aquafaba

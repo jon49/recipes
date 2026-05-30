@@ -3,8 +3,6 @@ title: Peanut Butter Balls (No Bake Protein Balls)
 description: Recipe for Peanut Butter Balls (No Bake Protein Balls).
 tags:
     - dessert
-categories:
-    - recipes
 ---
 
 Mix

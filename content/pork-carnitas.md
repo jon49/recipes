@@ -3,8 +3,6 @@ title: Pork Carnitas
 description: Recipe for Pork Carnitas.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cut into large pieces. Brown.

@@ -3,8 +3,6 @@ title: "Cake in a mug #lc #microwave"
 description: Recipe for Cake in a mug, low carb (microwave).
 tags:
     - dessert
-categories:
-    - recipes
 ---
 
 <nav>

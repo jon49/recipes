@@ -3,8 +3,6 @@ title: Mixed Bean Soup
 description: Recipe for Mixed Bean Soup.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Rinse and soak 2 lb bean soup mix. Drain, add new water. Simmer 30 mins.

@@ -3,8 +3,6 @@ title: Refried beans
 description: Recipe for Refried beans  .
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 ```

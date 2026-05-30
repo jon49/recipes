@@ -3,8 +3,6 @@ title: Muffaletta
 description: Recipe for Muffaletta.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

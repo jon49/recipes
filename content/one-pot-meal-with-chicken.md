@@ -3,8 +3,6 @@ title: One-pot Meal with Chicken
 description: Recipe for One-pot Meal with Chicken.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Sautee

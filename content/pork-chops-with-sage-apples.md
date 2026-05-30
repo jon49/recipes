@@ -3,8 +3,6 @@ title: "Seared Pork Chops with Sage and Apples #lc"
 description: Recipe for Seared Pork Chops with Sage and Apples #lc.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 **Makes 4 servings.**

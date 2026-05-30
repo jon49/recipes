@@ -3,8 +3,6 @@ title: Keto Cashew Chicken
 description: Recipe for Keto Cashew Chicken.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Season 2 Lbs. chopped chicken thigh/breast

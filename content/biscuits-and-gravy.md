@@ -3,8 +3,6 @@ title: Biscuits and Gravy
 description: Recipe for Biscuits and Gravy.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 Whisk

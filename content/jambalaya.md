@@ -3,8 +3,6 @@ title: Jambalaya
 description: Recipe for Jambalaya.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

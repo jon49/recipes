@@ -3,8 +3,6 @@ title: Salad Dressings
 description: Recipes for salad dressings.
 tags:
     - dressings
-categories:
-    - recipes
 ---
 
 <http://www.food.com/recipe/tahini-goddess-salad-dressing-95888>

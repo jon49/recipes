@@ -9,7 +9,7 @@ defaultContentLanguage = "en"
 # Generate a nice robots.txt for SEO
 enableRobotsTXT = true
 
-# Emit /index.json (recipe title, slug, tags, categories) alongside the home
+# Emit /index.json (recipe title, slug, tags) alongside the home
 # page; rendered by layouts/index.json.
 [outputs]
   home = ["HTML", "RSS", "JSON"]

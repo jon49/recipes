@@ -3,8 +3,6 @@ title: Discard Waffles/Pancakes from Farmhouse on Boone
 description: Recipe for waffles/pancakes.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 Mix

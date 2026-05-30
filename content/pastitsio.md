@@ -3,8 +3,6 @@ title: Pastitsio
 description: Recipe for Pastitsio.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

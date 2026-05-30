@@ -3,8 +3,6 @@ title: Ham and sweet potato muffins
 description: Recipe for Ham and sweet potato muffins.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 Dice and sautee

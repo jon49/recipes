@@ -3,8 +3,6 @@ title: Blueberry Almond Overnight Oats
 description: Recipe for Blueberry Almond Overnight Oats.
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 *Serves 1*

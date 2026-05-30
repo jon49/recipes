@@ -3,8 +3,6 @@ title: "Hamburger and Cabbage Stir-Fry #ble"
 description: Recipe for Hamburger and Cabbage Stir-Fry.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 *4+ serving (1 serving protein, 6 oz vegetables)*

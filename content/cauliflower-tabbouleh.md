@@ -4,8 +4,6 @@ description: Recipe for Cauliflower Tabbouleh.
 tags:
     - dinner
     - salad
-categories:
-    - recipes
 ---
 
 Pulse 1 head of cauliflower in food processor. Place in bowl.

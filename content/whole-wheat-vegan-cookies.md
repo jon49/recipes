@@ -3,8 +3,6 @@ title: Whole Wheat Vegan Cookies
 description: Recipe for Whole Wheat Vegan Cookies.
 tags:
   - dessert
-categories:
-    - recipes
 ---
 
 Heat oven to 375&deg;

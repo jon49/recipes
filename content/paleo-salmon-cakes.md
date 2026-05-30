@@ -3,8 +3,6 @@ title: Paleo Salmon Cakes
 description: Recipe for Paleo Salmon Cakes.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Combine

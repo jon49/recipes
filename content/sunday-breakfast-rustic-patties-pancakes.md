@@ -3,8 +3,6 @@ title: "Sunday Breakfast Rustic Patties (Pancakes) #ble"
 description: Recipe for Sunday Breakfast Rustic Patties (Pancakes).
 tags:
     - breakfast
-categories:
-    - recipes
 ---
 
 *1 serving*

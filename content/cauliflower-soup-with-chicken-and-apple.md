@@ -3,8 +3,6 @@ title: Cauliflower soup with chicken and apple
 description: Recipe for Cauliflower soup with chicken and apple.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

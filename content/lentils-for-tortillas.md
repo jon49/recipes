@@ -3,8 +3,6 @@ title: Lentils for Tortillas
 description: Recipe for Lentils for Tortillas.
 tags:
     - dinner
-categories:
-    - recipes
 ---
 
 Cook 2 1/2 cups lentils in 5 cups water for 45 Min. Add.

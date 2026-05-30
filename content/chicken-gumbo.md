@@ -3,8 +3,6 @@ title: Chicken Gumbo
 description: Recipe for Chicken Gumbo.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 

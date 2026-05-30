@@ -3,8 +3,6 @@ title: Meatball soup
 description: Recipe for Meatball soup.
 tags:
   - dinner
-categories:
-  - recipe-reference
 type: page
 ---
 
