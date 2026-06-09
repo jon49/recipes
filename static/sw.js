@@ -1,4 +1,4 @@
-let cacheVersion = "dynamic-cache-3"
+let cacheVersion = "dynamic-cache-4"
 
 let alwaysCache = [
     "/js/auth.js",
@@ -32,45 +32,40 @@ async function deleteOldCache() {
     return Promise.all(toDeleteOldCaches)
 }
 
-self.addEventListener('fetch', event => {
-    event.respondWith(
-        caches.open(cacheVersion).then(cache => {
-            return cache.match(event.request)
-            .then(response => {
-                if (response) {
-                    // If the response expires is not expired return it immediately
-                    let expires = response.headers.get('expires')
-                    if (expires && new Date(expires) > new Date()) {
-                        return response;
-                    }
+self.addEventListener("fetch", event => {
+    let request = event.request
+    if (request.method !== "GET") return
 
-                    // Check if the ETag has changed
-                    return fetch(event.request, { method: 'HEAD' })
-                        .then(headResponse => {
-                            if (headResponse.headers.get('ETag') === response.headers.get('ETag')) {
-                                return response;
-                            } else {
-                                return fetchAndCache(event.request, cache);
-                            }
-                        })
-                        .catch(() => {
-                            // If the HEAD request fails, return the cached response
-                            return response;
-                        })
-                } else {
-                    return fetchAndCache(event.request, cache);
-                }
-            });
+    let url = new URL(request.url)
+    if (url.origin !== self.location.origin) return
+
+    // The editor reads live data through these; never serve them from cache.
+    if (url.pathname.startsWith("/api/") || url.pathname === "/index.json") return
+
+    event.respondWith(staleWhileRevalidate(event))
+})
+
+// Stale-while-revalidate: serve the cached response immediately (if any) while
+// fetching a fresh copy in the background to replace it for next time. On a
+// cache miss, wait for the network.
+async function staleWhileRevalidate(event) {
+    let request = event.request
+    let cache = await caches.open(cacheVersion)
+    let cached = await cache.match(request)
+
+    let fromNetwork = fetch(request)
+        .then(response => {
+            if (response.ok) {
+                cache.put(request, response.clone())
+            }
+            return response
         })
-    );
-});
+        .catch(() => undefined)
 
-function fetchAndCache(request, cache) {
-    return fetch(request).then(networkResponse => {
-        if (networkResponse.ok) {
-            cache.put(request, networkResponse.clone());
-        }
-        return networkResponse;
-    });
+    if (cached) {
+        // Keep the worker alive until the background refresh finishes.
+        event.waitUntil(fromNetwork)
+        return cached
+    }
+    return (await fromNetwork) || Response.error()
 }
-
