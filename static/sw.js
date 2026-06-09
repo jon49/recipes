@@ -1,4 +1,4 @@
-let cacheVersion = "dynamic-cache-4"
+let cacheVersion = "dynamic-cache-5"
 
 let alwaysCache = [
     "/js/auth.js",
@@ -42,8 +42,32 @@ self.addEventListener("fetch", event => {
     // The editor reads live data through these; never serve them from cache.
     if (url.pathname.startsWith("/api/") || url.pathname === "/index.json") return
 
-    event.respondWith(staleWhileRevalidate(event))
+    if (request.mode === "navigate") {
+        // Pages (home + recipes): network-first so a refresh always shows the
+        // latest, falling back to the cache only when offline.
+        event.respondWith(networkFirst(event))
+    } else {
+        // Assets: stale-while-revalidate for fast loads.
+        event.respondWith(staleWhileRevalidate(event))
+    }
 })
+
+// Network-first: fetch a fresh copy (revalidating against the server, so an
+// unchanged page is a cheap 304), update the cache, and serve it. Fall back to
+// the cached copy when the network is unavailable.
+async function networkFirst(event) {
+    let cache = await caches.open(cacheVersion)
+    try {
+        let response = await fetch(event.request, { cache: "no-cache" })
+        if (response.ok) {
+            cache.put(event.request, response.clone())
+        }
+        return response
+    } catch (e) {
+        let cached = await cache.match(event.request)
+        return cached || Response.error()
+    }
+}
 
 // Stale-while-revalidate: serve the cached response immediately (if any) while
 // fetching a fresh copy in the background to replace it for next time. On a
