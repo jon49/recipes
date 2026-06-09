@@ -1,4 +1,4 @@
-let cacheVersion = "dynamic-cache-5"
+let cacheVersion = "dynamic-cache-6"
 
 let alwaysCache = [
     "/js/auth.js",
@@ -42,23 +42,18 @@ self.addEventListener("fetch", event => {
     // The editor reads live data through these; never serve them from cache.
     if (url.pathname.startsWith("/api/") || url.pathname === "/index.json") return
 
-    if (request.mode === "navigate") {
-        // Pages (home + recipes): network-first so a refresh always shows the
-        // latest, falling back to the cache only when offline.
-        event.respondWith(networkFirst(event))
-    } else {
-        // Assets: stale-while-revalidate for fast loads.
-        event.respondWith(staleWhileRevalidate(event))
-    }
+    // Page navigations always revalidate, so a refresh shows the latest. Other
+    // assets use the default cache mode, letting the browser's HTTP cache honor
+    // Cache-Control/Expires and revalidate with the ETag (304 when unchanged).
+    // Both fall back to the Cache API when the network is unavailable.
+    let cacheMode = request.mode === "navigate" ? "no-cache" : "default"
+    event.respondWith(networkWithOfflineFallback(event, cacheMode))
 })
 
-// Network-first: fetch a fresh copy (revalidating against the server, so an
-// unchanged page is a cheap 304), update the cache, and serve it. Fall back to
-// the cached copy when the network is unavailable.
-async function networkFirst(event) {
+async function networkWithOfflineFallback(event, cacheMode) {
     let cache = await caches.open(cacheVersion)
     try {
-        let response = await fetch(event.request, { cache: "no-cache" })
+        let response = await fetch(event.request, { cache: cacheMode })
         if (response.ok) {
             cache.put(event.request, response.clone())
         }
@@ -67,29 +62,4 @@ async function networkFirst(event) {
         let cached = await cache.match(event.request)
         return cached || Response.error()
     }
-}
-
-// Stale-while-revalidate: serve the cached response immediately (if any) while
-// fetching a fresh copy in the background to replace it for next time. On a
-// cache miss, wait for the network.
-async function staleWhileRevalidate(event) {
-    let request = event.request
-    let cache = await caches.open(cacheVersion)
-    let cached = await cache.match(request)
-
-    let fromNetwork = fetch(request)
-        .then(response => {
-            if (response.ok) {
-                cache.put(request, response.clone())
-            }
-            return response
-        })
-        .catch(() => undefined)
-
-    if (cached) {
-        // Keep the worker alive until the background refresh finishes.
-        event.waitUntil(fromNetwork)
-        return cached
-    }
-    return (await fromNetwork) || Response.error()
 }
