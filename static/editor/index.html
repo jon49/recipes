@@ -9,6 +9,9 @@
   main.container { max-width: 52rem; }
   .titlebar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .titlebar h1 { margin-bottom: 0; }
+  .title-left { display: flex; align-items: center; gap: 0.6rem; }
+  #home { display: inline-flex; color: inherit; }
+  #home svg { width: 1.7rem; height: 1.7rem; }
   .row { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem; }
   .row > button { width: auto; margin-bottom: 0; }
   #tag { width: auto; margin-bottom: 0; }
@@ -32,12 +35,27 @@
   #login, #app { display: none; }
   .show { display: block !important; }
   .err { color: var(--pico-del-color, #b00); }
+  /* Markdown preview pane (rendered client-side from the textarea) */
+  #preview {
+    min-height: 60vh; padding: 0.5rem 1.25rem 1.25rem;
+    border: var(--pico-border-width, 1px) solid var(--pico-muted-border-color, #ccc);
+    border-radius: var(--pico-border-radius, 0.25rem);
+  }
+  #preview pre { white-space: pre-wrap; }
 </style>
 </head>
 <body>
 <main class="container">
 <div class="titlebar">
-  <h1>Recipe Editor</h1>
+  <div class="title-left">
+    <a id="home" href="/" aria-label="Home" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+    <h1>Recipe Editor</h1>
+  </div>
   <button id="logout" type="button" hidden>Log out</button>
 </div>
 
@@ -54,13 +72,18 @@
   </div>
   <div class="row">
     <button id="new" type="button">New…</button>
-    <button id="save" type="button">Save</button>
+    <button id="previewBtn" type="button">Preview</button>
     <select id="tag" aria-label="Add an existing tag">
       <option value="">Add tag…</option>
     </select>
     <span id="status"></span>
+    <!-- Save is pushed to the right (after #status's margin-left:auto) so it sits
+         apart from the New/Preview buttons. -->
+    <button id="save" type="button">Save</button>
   </div>
   <textarea id="content" spellcheck="false"></textarea>
+  <!-- Rendered Markdown preview; toggled by the Preview button, hidden by default. -->
+  <article id="preview" hidden></article>
   <!-- Delete is deliberately separated from Save (below the editor, right
        aligned) so it can't be fat-fingered while saving. -->
   <div class="row delete-row">
@@ -69,6 +92,7 @@
 </div>
 </main>
 
+<script src="/js/marked.min.js"></script>
 <script>
 // In production the editor is same-origin and nginx proxies /api to PocketBase.
 // Under `hugo server` (port 1313) there is no proxy, so talk to PocketBase
@@ -218,7 +242,15 @@ function selectSlug(slug) {
   loadRecipe()
 }
 
+// Always drop back to the editor (not the preview) when the open recipe changes.
+function editMode() {
+  $("preview").hidden = true
+  $("content").hidden = false
+  $("previewBtn").textContent = "Preview"
+}
+
 async function loadRecipe() {
+  editMode()
   if (!currentSlug) { $("content").value = ""; return }
   const r = await fetch(API + "/recipes/" + currentSlug, { headers: authHeaders() })
   $("content").value = r.ok ? await r.text() : NEW_TEMPLATE
@@ -258,7 +290,39 @@ function newRecipe() {
   $("filter").value = slug
   $("results").hidden = true
   $("content").value = NEW_TEMPLATE
+  editMode()
   $("content").focus()
+}
+
+// --- Markdown preview --------------------------------------------------------
+
+// Render the textarea's Markdown the way the site roughly will: strip the
+// front matter, show its `title` as the page heading, and render the body with
+// marked (GFM, hard-wraps off — matching Hugo/goldmark defaults). This is a
+// client-side approximation; it won't run Hugo shortcodes, but recipes are
+// plain Markdown (headings, lists, fenced ingredient blocks) so it's faithful.
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]))
+
+function renderPreview() {
+  const raw = $("content").value
+  let body = raw, title = currentSlug
+  // Leading front matter: YAML (--- … ---) or TOML (+++ … +++).
+  const fm = raw.match(/^(?:---\r?\n([\s\S]*?)\r?\n---|\+\+\+\r?\n([\s\S]*?)\r?\n\+\+\+)[ \t]*\r?\n?/)
+  if (fm) {
+    body = raw.slice(fm[0].length)
+    const m = (fm[1] || fm[2] || "").match(/^title[ \t]*[:=][ \t]*["']?(.+?)["']?[ \t]*$/m)
+    if (m && m[1].trim()) title = m[1].trim()
+  }
+  $("preview").innerHTML = (title ? `<h1>${esc(title)}</h1>` : "") + marked.parse(body)
+}
+
+// Toggle between the editor textarea and the rendered preview.
+function togglePreview() {
+  const showing = $("preview").hidden   // about to show the preview?
+  if (showing) renderPreview()
+  $("preview").hidden = !showing
+  $("content").hidden = showing
+  $("previewBtn").textContent = showing ? "Edit" : "Preview"
 }
 
 function logout() {
@@ -306,6 +370,7 @@ $("tag").addEventListener("change", e => {
 })
 $("new").addEventListener("click", newRecipe)
 $("save").addEventListener("click", save)
+$("previewBtn").addEventListener("click", togglePreview)
 $("delete").addEventListener("click", del)
 $("logout").addEventListener("click", logout)
 
