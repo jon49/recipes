@@ -31,7 +31,7 @@ Almond flakes (optional)
 
 Place them on the baking tray lined with baking sheet (no greasing required). Sprinkle almond flakes on top of the cookies.
 
-Bake the cookies in 180 C (350 F) preheated oven for about 20 minutes. Take them out and leave to cool for 15mins.
+Bake the cookies in 350&deg; F (180&deg; C) preheated oven for about 20 minutes. Take them out and leave to cool for 15mins.
 
 ---
 
