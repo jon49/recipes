@@ -35,7 +35,7 @@ Add (whisking vigorously)
 _Alternatively_ add
 
 ```
-2 Tbsp Chia Seeds
+3 Tbsp Chia Seeds
 ```
 
 Let the mixture sit for ~10 minutes to cool a bit.
