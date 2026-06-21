@@ -49,7 +49,7 @@ some sesame seeds.
 Sesame seeds (for sprinkling on top)
 ```
 
-Bake the bread dough in preheated oven (350&deg;) for 50-60mins till golden brown.
+Bake the bread dough in preheated oven (350&deg; F) for 50-60mins till golden brown.
 
 ---
 
