@@ -10,9 +10,9 @@ tags:
 Blender - Puree
 
 ```
-2very ripe bananas
-1½Cup Low Fat Milk (or Almond Milk)
-½Cup Peanut Butter
+2 very ripe bananas
+1 1/2 Cup Low Fat Milk (or Almond Milk)
+1/2 Cup Peanut Butter
 ```
 
 Mix
