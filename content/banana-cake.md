@@ -1,6 +1,6 @@
 ---
-title: Apple Pumpkin Spice Muffins
-description: Recipe for Apple Pumpkin Spice Muffins.
+title: Banana Cake
+description: Recipe for Banana Cake.
 tags:
     - breakfast
     - snack
