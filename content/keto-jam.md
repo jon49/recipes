@@ -12,7 +12,7 @@ Mix, Set stove heat to med-high
 
 ```
 1 Cup Water
-1 Tbsp Lemon Juice
+1 Tbsp Lemon Juice or vinegar
 ```
 
 Add when water is hot
