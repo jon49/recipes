@@ -14,7 +14,7 @@ Blend until smooth ~30 seconds.
 1 Cup Soaked Cashews (overnight or fast soaked)
 ```
 
-*Fast soak by bring cashew with water to a boil. Set cover and aside for 20 minutes, drain and rinse.*
+*Fast soak by bring cashew with water to a boil. Cover and set aside for 20 minutes, drain and rinse.*
 
 Combine the rest and blend for another 30 seconds.
 
